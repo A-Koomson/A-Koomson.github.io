@@ -17,6 +17,8 @@ function githubPagesSpaFallback() {
 }
 
 export default defineConfig({
-  base: '/',
+  // Project Pages URL under A-Koomson. If the GitHub username is later
+  // renamed to alexanderkoomson, change this back to '/'.
+  base: '/alexanderkoomson.github.io/',
   plugins: [react(), githubPagesSpaFallback()],
 })

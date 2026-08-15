@@ -10,7 +10,8 @@ import { SocialLinks } from './SocialLinks'
 export function Hero() {
   const profile = getProfile()
   const social = getSocialLinks()
-  const cvAvailable = useCvAvailable(profile.cvPath)
+  const cvHref = `${import.meta.env.BASE_URL}${profile.cvPath.replace(/^\//, '')}`
+  const cvAvailable = useCvAvailable(cvHref)
 
   return (
     <section id="home" className="hero">
@@ -44,7 +45,7 @@ export function Hero() {
               <ExternalLink size={15} strokeWidth={1.8} />
             </a>
             {cvAvailable ? (
-              <a className="button button--ghost" href={profile.cvPath} download>
+              <a className="button button--ghost" href={cvHref} download>
                 Download CV
                 <Download size={15} strokeWidth={1.8} />
               </a>

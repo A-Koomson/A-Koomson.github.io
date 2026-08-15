@@ -4,7 +4,7 @@ Personal portfolio of **Alexander Baafi Koomson**, Software Engineer & Systems B
 
 **Building reliable systems. Understanding how they work.**
 
-Production URL: [https://alexanderkoomson.github.io](https://alexanderkoomson.github.io)
+Production URL: [https://a-koomson.github.io/alexanderkoomson.github.io/](https://a-koomson.github.io/alexanderkoomson.github.io/)
 
 Creator brand: [Systems by Koomson](https://www.youtube.com/@SystemsbyKoomson)
 
@@ -40,15 +40,15 @@ npm run preview
 
 ## Deployment
 
-The site is configured for the GitHub user site:
+The site is configured for GitHub Pages under the `A-Koomson` account:
 
-`https://alexanderkoomson.github.io`
+`https://a-koomson.github.io/alexanderkoomson.github.io/`
 
-Repository name should be:
+Repository name:
 
 `alexanderkoomson.github.io`
 
-The Vite base path is `/`.
+The Vite base path is `/alexanderkoomson.github.io/`. If the GitHub username is later renamed to `alexanderkoomson`, change `base` in `vite.config.ts` back to `/`.
 
 GitHub Actions workflow: `.github/workflows/deploy.yml`
 

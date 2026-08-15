@@ -14,8 +14,8 @@ export const profile: Profile = {
   ],
   location: 'Accra, Ghana',
   email: 'koomsonalexander54@gmail.com',
-  cvPath: '/Alexander-Koomson-CV.pdf',
-  siteUrl: 'https://alexanderkoomson.github.io',
+  cvPath: 'Alexander-Koomson-CV.pdf',
+  siteUrl: 'https://a-koomson.github.io/alexanderkoomson.github.io',
   youtubeBrand: {
     name: 'Systems by Koomson',
     tagline: 'Exploring the systems behind the software.',
