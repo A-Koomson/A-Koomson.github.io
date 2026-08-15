@@ -1,12 +1,12 @@
 :root {
-  --color-bg: #e96a4c;
+  --color-bg: #d96846;
   --color-header: #ffffff;
   --color-footer: #2f3020;
   --color-accent: #2f3020;
   --color-olive: #596235;
   --color-dark: #2f3020;
   --color-text: #2f3020;
-  --color-muted: color-mix(in srgb, #2f3020 78%, #e96a4c);
+  --color-muted: color-mix(in srgb, #2f3020 78%, #d96846);
   --color-surface: #ffffff;
   --color-surface-strong: #596235;
   --color-on-accent: #ffffff;
@@ -14,7 +14,7 @@
   --color-on-olive: #f4f1ec;
   --color-header-text: #2f3020;
   --color-footer-text: #f4f1ec;
-  --color-nav-active: #e96a4c;
+  --color-nav-active: #d96846;
   --color-border: color-mix(in srgb, #2f3020 16%, transparent);
   --color-grid: color-mix(in srgb, #2f3020 12%, transparent);
   --color-glow: color-mix(in srgb, #2f3020 18%, transparent);
@@ -32,20 +32,20 @@
 }
 
 [data-theme='dark'] {
-  --color-bg: #c24e38;
+  --color-bg: #b45338;
   --color-header: #1f2016;
   --color-footer: #14150f;
   --color-text: #f4f1ec;
-  --color-muted: color-mix(in srgb, #f4f1ec 78%, #c24e38);
+  --color-muted: color-mix(in srgb, #f4f1ec 78%, #d96846);
   --color-surface: #2a2b1e;
   --color-accent: #f4f1ec;
   --color-on-accent: #2f3020;
   --color-header-text: #f4f1ec;
   --color-footer-text: #f4f1ec;
-  --color-nav-active: #e96a4c;
+  --color-nav-active: #d96846;
   --color-border: color-mix(in srgb, #f4f1ec 16%, transparent);
   --color-grid: color-mix(in srgb, #f4f1ec 10%, transparent);
-  --color-glow: color-mix(in srgb, #e96a4c 28%, transparent);
+  --color-glow: color-mix(in srgb, #d96846 28%, transparent);
   --shadow-soft: 0 16px 40px color-mix(in srgb, #000 28%, transparent);
   color-scheme: dark;
 }
