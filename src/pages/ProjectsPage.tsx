@@ -1,4 +1,4 @@
-import { ProjectCard } from '../components/ProjectCard'
+import { ProjectCard, projectCardTone } from '../components/ProjectCard'
 import { Seo } from '../components/Seo'
 import { getProjects } from '../services/content'
 
@@ -26,14 +26,14 @@ export function ProjectsPage() {
         <div className="container">
           {featured.length > 0 ? (
             <div className="projects__featured">
-              {featured.map((project) => (
-                <ProjectCard key={project.id} project={project} featured />
+              {featured.map((project, index) => (
+                <ProjectCard key={project.id} project={project} featured tone={projectCardTone(index)} />
               ))}
             </div>
           ) : null}
           <div className="projects__grid">
-            {rest.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+            {rest.map((project, index) => (
+              <ProjectCard key={project.id} project={project} tone={projectCardTone(index + featured.length)} />
             ))}
           </div>
         </div>

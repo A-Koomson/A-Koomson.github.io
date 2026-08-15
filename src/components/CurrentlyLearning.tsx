@@ -7,7 +7,7 @@ export function CurrentlyLearning() {
   const items = getLearning()
 
   return (
-    <section className="section learning" aria-labelledby="learning-heading">
+    <section className="section section--olive learning" aria-labelledby="learning-heading">
       <div className="container">
         <SectionHeading
           index="07"

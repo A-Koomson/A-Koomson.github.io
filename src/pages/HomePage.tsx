@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Hero } from '../components/Hero'
-import { ProjectCard } from '../components/ProjectCard'
+import { ProjectCard, projectCardTone } from '../components/ProjectCard'
 import { SectionHeading } from '../components/SectionHeading'
 import { Seo } from '../components/Seo'
 import { SkillCard } from '../components/SkillCard'
@@ -51,8 +51,8 @@ export function HomePage() {
             description="A growing set of systems and applications. Each card opens a dedicated case study."
           />
           <div className="projects__featured">
-            {featured.map((project) => (
-              <ProjectCard key={project.id} project={project} featured />
+            {featured.map((project, index) => (
+              <ProjectCard key={project.id} project={project} featured tone={projectCardTone(index)} />
             ))}
           </div>
           <Link className="button button--primary" to="/projects/">
@@ -61,7 +61,7 @@ export function HomePage() {
           </Link>
         </div>
       </section>
-      <section className="section">
+      <section className="section section--olive">
         <div className="container">
           <SectionHeading
             index="03"

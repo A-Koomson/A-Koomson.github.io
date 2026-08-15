@@ -38,13 +38,21 @@ export function ProjectDetailPage() {
             <img className="case-study__image" src={project.image} alt={`${project.name} visual`} />
           ) : null}
         </div>
+        {solution ? (
+          <section className="case-architecture">
+            <div className="container">
+              <p className="case-label">Technical architecture</p>
+              <h2>The solution</h2>
+              <p>{solution}</p>
+            </div>
+          </section>
+        ) : null}
         <div className="container case-study__layout">
           <div>
             {hasBody ? (
               <>
                 <CaseBlock title="Project overview" body={overview} />
                 <CaseBlock title="The problem" body={problem} />
-                <CaseBlock title="The solution" body={solution} />
                 <CaseBlock title="My contribution" body={contribution} />
                 <CaseBlock title="Key learning" body={learning} />
               </>
@@ -73,6 +81,8 @@ export function ProjectDetailPage() {
             </div>
           </div>
           <aside className="case-aside">
+            <h2>Project metadata</h2>
+            <p>{project.featured ? 'Featured project' : 'Case study'}</p>
             <h2>Technology stack</h2>
             {technologies.length > 0 ? (
               <ul className="tech-list">

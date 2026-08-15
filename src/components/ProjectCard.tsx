@@ -4,12 +4,19 @@ import { Link } from 'react-router-dom'
 import type { Project } from '../types'
 import { displayText, visibleList } from '../utils/placeholders'
 
+export type ProjectCardTone = 'light' | 'olive' | 'dark'
+
 interface ProjectCardProps {
   project: Project
   featured?: boolean
+  tone?: ProjectCardTone
 }
 
-export function ProjectCard({ project, featured = false }: ProjectCardProps) {
+export function projectCardTone(index: number): ProjectCardTone {
+  return (['light', 'olive', 'dark'] as const)[index % 3]
+}
+
+export function ProjectCard({ project, featured = false, tone = 'light' }: ProjectCardProps) {
   const [imageFailed, setImageFailed] = useState(false)
   const technologies = visibleList(project.technologies)
   const description = displayText(project.description, 'Open the case study for available details.')
@@ -23,7 +30,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
     >
       <Link
         to={`/projects/${project.id}/`}
-        className={`project-card ${featured ? 'project-card--featured' : ''}`}
+        className={`project-card project-card--${tone} ${featured ? 'project-card--featured' : ''}`}
         aria-label={`View ${project.name} case study`}
       >
         <span className="project-card__media">
