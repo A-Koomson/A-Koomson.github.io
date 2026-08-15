@@ -1,7 +1,6 @@
 import { Mail } from 'lucide-react'
 import { getProfile, getSocialLink } from '../services/content'
 import { GithubIcon, LinkedinIcon, YoutubeIcon } from './icons'
-import { SectionHeading } from './SectionHeading'
 
 export function Contact() {
   const profile = getProfile()
@@ -11,14 +10,8 @@ export function Contact() {
   const youtube = getSocialLink('youtube')
 
   return (
-    <section id="contact" className="section contact">
-      <div className="container contact__layout">
-        <SectionHeading
-          index="09"
-          eyebrow="Contact"
-          title="Let's Connect"
-          description="For work, collaboration, or a conversation about systems — email is the most direct path."
-        />
+    <section className="section contact">
+      <div className="container">
         <div className="contact__panel">
           <a className="contact__email" href={`mailto:${profile.email}`}>
             <Mail size={20} strokeWidth={1.7} />

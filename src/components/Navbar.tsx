@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { useEffect, useId, useMemo, useRef, useState } from 'react'
-import { useActiveSection } from '../hooks/useActiveSection'
+import { useEffect, useId, useRef, useState } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useFocusTrap } from '../hooks/useFocusTrap'
 import { useLockBodyScroll } from '../hooks/useLockBodyScroll'
 import { getNavItems, getProfile, getSocialLink, getSocialLinks } from '../services/content'
@@ -15,9 +15,7 @@ export function Navbar() {
   const github = getSocialLink('github')
   const linkedin = getSocialLink('linkedin')
   const youtube = getSocialLink('youtube')
-  const sectionIds = useMemo(() => navItems.map((item) => item.id), [navItems])
-  const activeId = useActiveSection(sectionIds)
-  const [compact, setCompact] = useState(false)
+  const location = useLocation()
   const [open, setOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const menuId = useId()
@@ -26,11 +24,8 @@ export function Navbar() {
   useFocusTrap(menuRef, open)
 
   useEffect(() => {
-    const onScroll = () => setCompact(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    setOpen(false)
+  }, [location.pathname])
 
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
@@ -40,29 +35,36 @@ export function Navbar() {
     return () => document.removeEventListener('keydown', onKey)
   }, [])
 
-  function closeAndNavigate() {
-    setOpen(false)
+  function isActivePath(href: string) {
+    if (href === '/') return location.pathname === '/'
+    const normalized = href.replace(/\/$/, '')
+    return (
+      location.pathname === href ||
+      location.pathname === normalized ||
+      location.pathname.startsWith(`${normalized}/`)
+    )
   }
 
   return (
-    <header className={`navbar ${compact ? 'navbar--compact' : ''}`}>
+    <header className="navbar">
       <div className="navbar__inner">
-        <a className="navbar__brand" href="#home" aria-label={`${profile.shortName} home`}>
+        <NavLink className="navbar__brand" to="/" aria-label={`${profile.shortName} home`}>
           <span className="navbar__mark">{profile.initials}</span>
           <span className="navbar__name">Koomson</span>
-        </a>
+        </NavLink>
 
         <nav className="navbar__desktop" aria-label="Primary">
           <ul>
             {navItems.map((item) => (
               <li key={item.id}>
-                <a
-                  href={item.href}
-                  className={activeId === item.id ? 'is-active' : undefined}
-                  aria-current={activeId === item.id ? 'location' : undefined}
+                <NavLink
+                  to={item.href}
+                  end={item.href === '/'}
+                  className={isActivePath(item.href) ? 'is-active' : undefined}
+                  aria-current={isActivePath(item.href) ? 'page' : undefined}
                 >
                   {item.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -139,10 +141,15 @@ export function Navbar() {
               <ul>
                 {navItems.map((item, index) => (
                   <li key={item.id}>
-                    <a href={item.href} onClick={closeAndNavigate}>
+                    <NavLink
+                      to={item.href}
+                      end={item.href === '/'}
+                      className={isActivePath(item.href) ? 'is-active' : undefined}
+                      onClick={() => setOpen(false)}
+                    >
                       <span>0{index + 1}</span>
                       {item.label}
-                    </a>
+                    </NavLink>
                   </li>
                 ))}
               </ul>

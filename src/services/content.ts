@@ -25,6 +25,15 @@ export function getProjects() {
   return projects
 }
 
+export function getProjectById(id: string) {
+  return projects.find((project) => project.id === id)
+}
+
+export function getFeaturedProjects() {
+  const featured = projects.filter((project) => project.featured)
+  return featured.length > 0 ? featured : projects.slice(0, 2)
+}
+
 export function getSkillCategories() {
   return skillCategories
 }

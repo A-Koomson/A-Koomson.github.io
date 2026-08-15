@@ -2,35 +2,33 @@ import type { SkillCategory } from '../types'
 
 export const skillCategories: SkillCategory[] = [
   {
+    id: 'programming',
+    title: 'Programming',
+    skills: [{ name: 'Python' }, { name: 'JavaScript' }, { name: 'Go / Golang' }],
+  },
+  {
     id: 'backend',
     title: 'Backend',
-    skills: [
-      { name: 'Python' },
-      { name: 'Django' },
-      { name: 'Go / Golang' },
-      { name: 'REST APIs' },
-      { name: 'PostgreSQL' },
-    ],
+    skills: [{ name: 'Django' }, { name: 'REST APIs' }],
+  },
+  {
+    id: 'databases',
+    title: 'Databases',
+    skills: [{ name: 'PostgreSQL' }],
   },
   {
     id: 'frontend',
     title: 'Frontend',
-    skills: [
-      { name: 'React' },
-      { name: 'JavaScript' },
-      { name: 'HTML' },
-      { name: 'CSS' },
-    ],
+    skills: [{ name: 'React' }, { name: 'HTML' }, { name: 'CSS' }],
   },
   {
-    id: 'devops',
-    title: 'DevOps / Cloud',
-    skills: [
-      { name: 'Docker' },
-      { name: 'Git' },
-      { name: 'GitHub' },
-      { name: 'AWS', status: 'learning' },
-      { name: 'Linux' },
-    ],
+    id: 'tools',
+    title: 'Tools',
+    skills: [{ name: 'Git' }, { name: 'GitHub' }, { name: 'Docker' }, { name: 'Linux' }],
+  },
+  {
+    id: 'infrastructure',
+    title: 'Infrastructure',
+    skills: [{ name: 'AWS', status: 'learning' }],
   },
 ]

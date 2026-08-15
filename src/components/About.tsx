@@ -8,7 +8,7 @@ export function About() {
   const education = getEducation()[0]
 
   return (
-    <section id="about" className="section about">
+    <section className="section about">
       <div className="container about__grid">
         <SectionHeading index="01" eyebrow="About" title="Engineer. Student. Builder." />
         <div className="about__content">

@@ -15,7 +15,7 @@ export const profile: Profile = {
   location: 'Accra, Ghana',
   email: 'koomsonalexander54@gmail.com',
   cvPath: 'Alexander-Koomson-CV.pdf',
-  siteUrl: 'https://a-koomson.github.io/alexanderkoomson.github.io',
+  siteUrl: 'https://a-koomson.github.io',
   youtubeBrand: {
     name: 'Systems by Koomson',
     tagline: 'Exploring the systems behind the software.',
@@ -40,11 +40,11 @@ export const profile: Profile = {
 }
 
 export const navItems: NavItem[] = [
-  { id: 'home', label: 'Home', href: '#home' },
-  { id: 'about', label: 'About', href: '#about' },
-  { id: 'projects', label: 'Projects', href: '#projects' },
-  { id: 'skills', label: 'Skills', href: '#skills' },
-  { id: 'experience', label: 'Experience', href: '#experience' },
-  { id: 'youtube', label: 'YouTube', href: '#youtube' },
-  { id: 'contact', label: 'Contact', href: '#contact' },
+  { id: 'home', label: 'Home', href: '/' },
+  { id: 'about', label: 'About', href: '/about/' },
+  { id: 'projects', label: 'Projects', href: '/projects/' },
+  { id: 'skills', label: 'Skills', href: '/skills/' },
+  { id: 'experience', label: 'Experience', href: '/experience/' },
+  { id: 'youtube', label: 'YouTube', href: '/youtube/' },
+  { id: 'contact', label: 'Contact', href: '/contact/' },
 ]

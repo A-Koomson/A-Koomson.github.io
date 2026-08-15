@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Download, ExternalLink } from 'lucide-react'
+import { ArrowRight, Download } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useCvAvailable } from '../hooks/useCvAvailable'
 import { getProfile, getSocialLinks } from '../services/content'
 import { fadeUp, stagger } from '../utils/motion'
@@ -14,11 +15,11 @@ export function Hero() {
   const cvAvailable = useCvAvailable(cvHref)
 
   return (
-    <section id="home" className="hero">
+    <section className="hero">
       <EngineeringGrid />
       <div className="hero__inner">
         <motion.div className="hero__copy" variants={stagger} initial="hidden" animate="visible">
-          <motion.p className="hero__kicker" variants={fadeUp}>
+          <motion.p className="hero__kicker page-kicker" variants={fadeUp}>
             {profile.title}
           </motion.p>
           <motion.h1 className="hero__name" variants={fadeUp}>
@@ -31,19 +32,13 @@ export function Hero() {
             {profile.supportingStatement}
           </motion.p>
           <motion.div className="hero__actions" variants={fadeUp}>
-            <a className="button button--primary" href="#projects">
+            <Link className="button button--primary" to="/projects/">
               View My Work
               <ArrowRight size={16} strokeWidth={1.8} />
-            </a>
-            <a
-              className="button button--secondary"
-              href={profile.youtubeBrand.url}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Systems by Koomson
-              <ExternalLink size={15} strokeWidth={1.8} />
-            </a>
+            </Link>
+            <Link className="button button--secondary" to="/about/">
+              About Me
+            </Link>
             {cvAvailable ? (
               <a className="button button--ghost" href={cvHref} download>
                 Download CV

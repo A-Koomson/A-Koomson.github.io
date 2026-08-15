@@ -1,6 +1,5 @@
 import { ExternalLink } from 'lucide-react'
 import { getProfile, getVideos } from '../services/content'
-import { SectionHeading } from './SectionHeading'
 import { VideoCard } from './VideoCard'
 
 export function YouTube() {
@@ -9,14 +8,8 @@ export function YouTube() {
   const { youtubeBrand } = profile
 
   return (
-    <section id="youtube" className="section youtube">
+    <section className="section youtube">
       <div className="container">
-        <SectionHeading
-          index="08"
-          eyebrow="Creator"
-          title={youtubeBrand.name}
-          description={youtubeBrand.tagline}
-        />
         <p className="youtube__intro">{youtubeBrand.description}</p>
         {videos.length > 0 ? (
           <div className="youtube__grid">
@@ -26,7 +19,10 @@ export function YouTube() {
           </div>
         ) : (
           <div className="youtube__empty">
-            <p>New explorations are on the way. The channel is the living notebook for systems, backend engineering, and the ideas behind the software we build.</p>
+            <p>
+              New explorations are on the way. The channel is the living notebook for systems, backend engineering, and
+              the ideas behind the software we build.
+            </p>
           </div>
         )}
         <a

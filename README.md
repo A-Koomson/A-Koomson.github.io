@@ -4,7 +4,7 @@ Personal portfolio of **Alexander Baafi Koomson**, Software Engineer & Systems B
 
 **Building reliable systems. Understanding how they work.**
 
-Production URL: [https://a-koomson.github.io/alexanderkoomson.github.io/](https://a-koomson.github.io/alexanderkoomson.github.io/)
+Production URL: [https://a-koomson.github.io/](https://a-koomson.github.io/)
 
 Creator brand: [Systems by Koomson](https://www.youtube.com/@SystemsbyKoomson)
 
@@ -38,21 +38,34 @@ npm run build
 npm run preview
 ```
 
+## Pages
+
+- `/` Home
+- `/about/` About
+- `/projects/` Projects
+- `/projects/:project-id/` Project case study
+- `/skills/` Skills
+- `/experience/` Experience
+- `/youtube/` Systems by Koomson
+- `/contact/` Contact
+
 ## Deployment
 
-The site is configured for GitHub Pages under the `A-Koomson` account:
+The site is configured as a GitHub user site:
 
-`https://a-koomson.github.io/alexanderkoomson.github.io/`
+`https://a-koomson.github.io/`
 
-Repository name:
+The repository should be named:
 
-`alexanderkoomson.github.io`
+`A-Koomson.github.io`
 
-The Vite base path is `/alexanderkoomson.github.io/`. If the GitHub username is later renamed to `alexanderkoomson`, change `base` in `vite.config.ts` back to `/`.
+The Vite base path is `/`.
 
 GitHub Actions workflow: `.github/workflows/deploy.yml`
 
 On every push to `main`, the workflow installs dependencies, builds the app, and deploys the `dist` folder to GitHub Pages.
+
+The build also writes `index.html` into each route folder so GitHub Pages can serve `/about/`, `/projects/`, and project case studies as static paths.
 
 In the GitHub repository, enable Pages with **GitHub Actions** as the source.
 
@@ -99,7 +112,7 @@ Where details are not ready, keep `PLACEHOLDER` in the data file. The UI will sh
 }
 ```
 
-If a GitHub or live URL is not ready, leave `PLACEHOLDER`.
+Also add the project `id` to `src/data/routes.ts` so GitHub Pages can generate `/projects/your-id/`.
 
 ## How to add YouTube videos
 
@@ -139,13 +152,13 @@ The Download CV button becomes active when that file is present. Do not add a fa
 The palette is defined as CSS variables in `src/index.css`.
 
 ```css
---color-primary: #d96846;
---color-secondary: #596235;
---color-background: #2f3020;
---color-text-soft: #cdcbd6;
+--color-bg: #cdcbd6;
+--color-accent: #d96846;
+--color-olive: #596235;
+--color-dark: #2f3020;
 ```
 
-Dark mode is the default creative-engineer theme. Light mode uses the same accents on lighter surfaces. The visitor's choice is stored in `localStorage` under `ak-theme`.
+The lavender background is the default visual system. Dark mode uses the same four colors with `#2F3020` as the surface. The visitor's choice is stored in `localStorage` under `ak-theme`.
 
 ## Social preview
 
