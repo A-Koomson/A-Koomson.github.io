@@ -1,8 +1,11 @@
+import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
 import { Link, Navigate, useParams } from 'react-router-dom'
+import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
 import { GithubIcon } from '../components/icons'
 import { getProjectById } from '../services/content'
+import { fadeIn, viewportOnce } from '../utils/motion'
 import { isPlaceholder, visibleList } from '../utils/placeholders'
 
 export function ProjectDetailPage() {
@@ -31,19 +34,25 @@ export function ProjectDetailPage() {
       />
       <article className="case-study">
         <div className="container case-study__hero">
-          <p className="page-header__eyebrow">Case study</p>
-          <h1 className="case-study__title">{project.name}</h1>
-          {overview ? <p className="page-header__description">{overview}</p> : null}
+          <Reveal>
+            <p className="page-header__eyebrow">Case study</p>
+            <h1 className="case-study__title">{project.name}</h1>
+            {overview ? <p className="page-header__description">{overview}</p> : null}
+          </Reveal>
           {project.image ? (
-            <img className="case-study__image" src={project.image} alt={`${project.name} visual`} />
+            <Reveal delay={0.08}>
+              <img className="case-study__image" src={project.image} alt={`${project.name} visual`} />
+            </Reveal>
           ) : null}
         </div>
         {solution ? (
           <section className="case-architecture">
             <div className="container">
-              <p className="case-label">Technical architecture</p>
-              <h2>The solution</h2>
-              <p>{solution}</p>
+              <Reveal>
+                <p className="case-label">Technical architecture</p>
+                <h2>The solution</h2>
+                <p>{solution}</p>
+              </Reveal>
             </div>
           </section>
         ) : null}
@@ -57,30 +66,40 @@ export function ProjectDetailPage() {
                 <CaseBlock title="Key learning" body={learning} />
               </>
             ) : (
-              <p className="case-empty">
-                This case study is being documented. The title, visual, and known technologies are listed here until
-                the remaining sections are added.
-              </p>
+              <Reveal>
+                <p className="case-empty">
+                  This case study is being documented. The title, visual, and known technologies are listed here until
+                  the remaining sections are added.
+                </p>
+              </Reveal>
             )}
-            <div className="case-study__links">
-              {github ? (
-                <a className="button button--secondary" href={github} target="_blank" rel="noreferrer noopener">
-                  <GithubIcon size={16} />
-                  GitHub
-                </a>
-              ) : null}
-              {live ? (
-                <a className="button button--primary" href={live} target="_blank" rel="noreferrer noopener">
-                  Live demo
-                </a>
-              ) : null}
-              <Link className="button button--ghost" to="/projects/">
-                <ArrowLeft size={16} />
-                Back to projects
-              </Link>
-            </div>
+            <Reveal delay={0.06}>
+              <div className="case-study__links">
+                {github ? (
+                  <a className="button button--secondary" href={github} target="_blank" rel="noreferrer noopener">
+                    <GithubIcon size={16} />
+                    GitHub
+                  </a>
+                ) : null}
+                {live ? (
+                  <a className="button button--primary" href={live} target="_blank" rel="noreferrer noopener">
+                    Live demo
+                  </a>
+                ) : null}
+                <Link className="button button--ghost" to="/projects/">
+                  <ArrowLeft size={16} />
+                  Back to projects
+                </Link>
+              </div>
+            </Reveal>
           </div>
-          <aside className="case-aside">
+          <motion.aside
+            className="case-aside"
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
             <h2>Project metadata</h2>
             <p>{project.featured ? 'Featured project' : 'Case study'}</p>
             <h2>Technology stack</h2>
@@ -93,7 +112,7 @@ export function ProjectDetailPage() {
             ) : (
               <p>Stack to be documented.</p>
             )}
-          </aside>
+          </motion.aside>
         </div>
       </article>
     </>
@@ -103,10 +122,12 @@ export function ProjectDetailPage() {
 function CaseBlock({ title, body }: { title: string; body: string | null }) {
   if (!body) return null
   return (
-    <section className="case-block">
-      <h2>{title}</h2>
-      <p>{body}</p>
-    </section>
+    <Reveal>
+      <section className="case-block">
+        <h2>{title}</h2>
+        <p>{body}</p>
+      </section>
+    </Reveal>
   )
 }
 

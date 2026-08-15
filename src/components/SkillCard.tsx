@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import type { Skill } from '../types'
+import { easeOut } from '../utils/motion'
 
 interface SkillCardProps {
   skill: Skill
@@ -13,9 +14,13 @@ export function SkillCard({ skill, index }: SkillCardProps) {
     <motion.article
       className={`skill-card ${learning ? 'skill-card--learning' : ''}`}
       initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.4, delay: Math.min(index * 0.04, 0.24), ease: easeOut },
+      }}
+      whileHover={{ y: -3, transition: { duration: 0.22, ease: easeOut } }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.4, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
     >
       <span className="skill-card__mark" aria-hidden="true">
         {skill.name.charAt(0)}

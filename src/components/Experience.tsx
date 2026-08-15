@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { getExperience } from '../services/content'
 import { displayText, isPlaceholder } from '../utils/placeholders'
-import { fadeUp, viewportOnce } from '../utils/motion'
+import { fadeUp, stagger, viewportOnce } from '../utils/motion'
 
 export function Experience() {
   const entries = getExperience()
@@ -9,18 +9,27 @@ export function Experience() {
   return (
     <section className="section experience">
       <div className="container">
-        <ol className="timeline">
+        <div className="timeline-wrap">
+          <motion.span
+            className="timeline__line"
+            aria-hidden="true"
+            style={{ originY: 0 }}
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          />
+          <motion.ol
+            className="timeline"
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
           {entries.map((entry) => {
             const responsibilities = entry.responsibilities.filter((item) => !isPlaceholder(item))
             return (
-              <motion.li
-                key={entry.id}
-                className="timeline__item"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportOnce}
-              >
+              <motion.li key={entry.id} className="timeline__item" variants={fadeUp}>
                 <div className="timeline__marker" aria-hidden="true" />
                 <div className="timeline__card">
                   <p className="timeline__meta">{displayText(entry.dates, 'Dates to be added')}</p>
@@ -39,7 +48,8 @@ export function Experience() {
               </motion.li>
             )
           })}
-        </ol>
+          </motion.ol>
+        </div>
       </div>
     </section>
   )

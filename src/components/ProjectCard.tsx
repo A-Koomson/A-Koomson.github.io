@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { Project } from '../types'
+import { duration, easeOut } from '../utils/motion'
 import { displayText, visibleList } from '../utils/placeholders'
 
 export type ProjectCardTone = 'light' | 'olive' | 'dark'
@@ -26,7 +28,7 @@ export function ProjectCard({ project, featured = false, tone = 'light' }: Proje
       initial={{ opacity: 0, y: 22 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: duration.slow, ease: easeOut }}
     >
       <Link
         to={`/projects/${project.id}/`}
@@ -62,7 +64,10 @@ export function ProjectCard({ project, featured = false, tone = 'light' }: Proje
           ) : (
             <p className="project-card__meta">Stack to be documented.</p>
           )}
-          <p className="project-card__hint">View case study</p>
+          <p className="project-card__hint">
+            View case study
+            <ArrowRight className="project-card__arrow" size={14} strokeWidth={1.8} />
+          </p>
         </span>
       </Link>
     </motion.div>

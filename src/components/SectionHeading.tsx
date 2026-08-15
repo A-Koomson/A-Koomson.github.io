@@ -1,3 +1,6 @@
+import { motion } from 'framer-motion'
+import { fadeUp, labelReveal, stagger, viewportOnce } from '../utils/motion'
+
 interface SectionHeadingProps {
   index: string
   eyebrow?: string
@@ -15,14 +18,41 @@ export function SectionHeading({
   align = 'left',
   titleId,
 }: SectionHeadingProps) {
+  const lines = splitTitle(title)
+
   return (
-    <header className={`section-heading section-heading--${align}`}>
-      <p className="section-heading__index">{index}</p>
-      {eyebrow ? <p className="section-heading__eyebrow">{eyebrow}</p> : null}
+    <motion.header
+      className={`section-heading section-heading--${align}`}
+      variants={stagger}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+    >
+      <motion.p className="section-heading__index" variants={labelReveal}>
+        {index}
+      </motion.p>
+      {eyebrow ? (
+        <motion.p className="section-heading__eyebrow" variants={labelReveal}>
+          {eyebrow}
+        </motion.p>
+      ) : null}
       <h2 id={titleId} className="section-heading__title">
-        {title}
+        {lines.map((line) => (
+          <motion.span key={line} className="title-line" variants={fadeUp}>
+            {line}
+          </motion.span>
+        ))}
       </h2>
-      {description ? <p className="section-heading__description">{description}</p> : null}
-    </header>
+      {description ? (
+        <motion.p className="section-heading__description" variants={fadeUp}>
+          {description}
+        </motion.p>
+      ) : null}
+    </motion.header>
   )
+}
+
+function splitTitle(title: string) {
+  if (!title.includes('. ')) return [title]
+  return title.split(/(?<=\.)\s+/)
 }

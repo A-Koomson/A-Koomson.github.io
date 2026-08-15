@@ -18,8 +18,8 @@ export function ProfileImage() {
     const rect = event.currentTarget.getBoundingClientRect()
     const offsetX = (event.clientX - rect.left) / rect.width - 0.5
     const offsetY = (event.clientY - rect.top) / rect.height - 0.5
-    x.set(offsetX * 10)
-    y.set(offsetY * 10)
+    x.set(offsetX * 6)
+    y.set(offsetY * 6)
   }
 
   function onLeave() {

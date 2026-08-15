@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { getNavItems, getProfile, getSocialLinks } from '../services/content'
+import { fadeUp, viewportOnce } from '../utils/motion'
 import { SocialLinks } from './SocialLinks'
 
 export function Footer() {
@@ -8,7 +10,13 @@ export function Footer() {
   const navItems = getNavItems()
 
   return (
-    <footer className="footer">
+    <motion.footer
+      className="footer"
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportOnce}
+    >
       <div className="container footer__inner">
         <div>
           <p className="footer__brand">{profile.shortName}</p>
@@ -26,6 +34,6 @@ export function Footer() {
         </nav>
         <SocialLinks links={getSocialLinks()} />
       </div>
-    </footer>
+    </motion.footer>
   )
 }

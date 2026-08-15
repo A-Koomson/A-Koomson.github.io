@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useEffect, useId, useRef, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
@@ -46,7 +46,12 @@ export function Navbar() {
   }
 
   return (
-    <header className="navbar">
+    <motion.header
+      className="navbar"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className="navbar__inner">
         <NavLink className="navbar__brand" to="/" aria-label={`${profile.shortName} home`}>
           <span className="navbar__mark">{profile.initials}</span>
@@ -54,7 +59,8 @@ export function Navbar() {
         </NavLink>
 
         <nav className="navbar__desktop" aria-label="Primary">
-          <ul>
+          <LayoutGroup>
+            <ul>
             {navItems.map((item) => (
               <li key={item.id}>
                 <NavLink
@@ -64,10 +70,18 @@ export function Navbar() {
                   aria-current={isActivePath(item.href) ? 'page' : undefined}
                 >
                   {item.label}
+                  {isActivePath(item.href) ? (
+                    <motion.span
+                      className="navbar__indicator"
+                      layoutId="nav-indicator"
+                      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                    />
+                  ) : null}
                 </NavLink>
               </li>
             ))}
-          </ul>
+            </ul>
+          </LayoutGroup>
         </nav>
 
         <div className="navbar__actions">
@@ -133,9 +147,9 @@ export function Navbar() {
           >
             <motion.nav
               className="mobile-menu__panel"
-              initial={{ x: 24, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: 16, opacity: 0 }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
             >
               <ul>
@@ -160,6 +174,6 @@ export function Navbar() {
           </motion.div>
         ) : null}
       </AnimatePresence>
-    </header>
+    </motion.header>
   )
 }

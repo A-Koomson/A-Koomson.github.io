@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Hero } from '../components/Hero'
 import { ProjectCard, projectCardTone } from '../components/ProjectCard'
+import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
 import { Seo } from '../components/Seo'
 import { SkillCard } from '../components/SkillCard'
@@ -31,15 +32,17 @@ export function HomePage() {
       <section className="home-intro">
         <div className="container">
           <SectionHeading index="01" eyebrow="Introduction" title="Engineer. Student. Builder." />
-          <p className="about__text">{profile.about[0]}</p>
-          {education ? (
-            <p className="about__text">
-              Currently pursuing {education.credential} at {education.institution}. {education.note}
-            </p>
-          ) : null}
-          <Link className="section-link" to="/about/">
-            Continue to About
-          </Link>
+          <Reveal>
+            <p className="about__text">{profile.about[0]}</p>
+            {education ? (
+              <p className="about__text">
+                Currently pursuing {education.credential} at {education.institution}. {education.note}
+              </p>
+            ) : null}
+            <Link className="section-link" to="/about/">
+              Continue to About
+            </Link>
+          </Reveal>
         </div>
       </section>
       <section className="section">
@@ -55,10 +58,12 @@ export function HomePage() {
               <ProjectCard key={project.id} project={project} featured tone={projectCardTone(index)} />
             ))}
           </div>
-          <Link className="button button--primary" to="/projects/">
-            View all projects
-            <ArrowRight size={16} />
-          </Link>
+          <Reveal delay={0.08}>
+            <Link className="button button--primary" to="/projects/">
+              View all projects
+              <ArrowRight size={16} />
+            </Link>
+          </Reveal>
         </div>
       </section>
       <section className="section section--olive">
@@ -74,31 +79,37 @@ export function HomePage() {
               <SkillCard key={skill.name} skill={skill} index={index} />
             ))}
           </div>
-          <p>
-            <Link className="section-link" to="/skills/">
-              See all skills
-            </Link>
-          </p>
+          <Reveal delay={0.06}>
+            <p>
+              <Link className="section-link" to="/skills/">
+                See all skills
+              </Link>
+            </p>
+          </Reveal>
         </div>
       </section>
       <section className="section">
         <div className="container">
           <SectionHeading index="04" eyebrow="Work" title="Experience" />
           {experience ? (
-            <div className="timeline__card">
-              <p className="timeline__meta">{displayText(experience.dates, 'Dates to be added')}</p>
-              <h3>{experience.company}</h3>
-              <p className="timeline__role">{displayText(experience.role, 'Role details coming soon')}</p>
-              {experience.responsibilities.some((item) => !isPlaceholder(item)) ? null : (
-                <p className="timeline__placeholder">Responsibilities will be added here.</p>
-              )}
-            </div>
+            <Reveal>
+              <div className="timeline__card">
+                <p className="timeline__meta">{displayText(experience.dates, 'Dates to be added')}</p>
+                <h3>{experience.company}</h3>
+                <p className="timeline__role">{displayText(experience.role, 'Role details coming soon')}</p>
+                {experience.responsibilities.some((item) => !isPlaceholder(item)) ? null : (
+                  <p className="timeline__placeholder">Responsibilities will be added here.</p>
+                )}
+              </div>
+            </Reveal>
           ) : null}
-          <p>
-            <Link className="section-link" to="/experience/">
-              Full experience
-            </Link>
-          </p>
+          <Reveal delay={0.08}>
+            <p>
+              <Link className="section-link" to="/experience/">
+                Full experience
+              </Link>
+            </p>
+          </Reveal>
         </div>
       </section>
       <section className="home-cta">
@@ -109,10 +120,12 @@ export function HomePage() {
             title="Let's connect"
             description="For work, collaboration, or a conversation about systems."
           />
-          <Link className="button button--primary" to="/contact/">
-            Contact
-            <ArrowRight size={16} />
-          </Link>
+          <Reveal>
+            <Link className="button button--primary" to="/contact/">
+              Contact
+              <ArrowRight size={16} />
+            </Link>
+          </Reveal>
         </div>
       </section>
     </>

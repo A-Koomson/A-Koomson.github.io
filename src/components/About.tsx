@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { getEducation, getProfile } from '../services/content'
-import { fadeUp, viewportOnce } from '../utils/motion'
+import { fadeUp, stagger, viewportOnce } from '../utils/motion'
 import { SectionHeading } from './SectionHeading'
 
 export function About() {
@@ -11,26 +11,19 @@ export function About() {
     <section className="section about">
       <div className="container about__grid">
         <SectionHeading index="01" eyebrow="About" title="Engineer. Student. Builder." />
-        <div className="about__content">
+        <motion.div
+          className="about__content"
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {profile.about.map((paragraph) => (
-            <motion.p
-              key={paragraph}
-              className="about__text"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportOnce}
-            >
+            <motion.p key={paragraph} className="about__text" variants={fadeUp}>
               {paragraph}
             </motion.p>
           ))}
-          <motion.dl
-            className="about__facts"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-          >
+          <motion.dl className="about__facts" variants={fadeUp}>
             <div>
               <dt>Focus</dt>
               <dd>Backend systems, architecture, databases</dd>
@@ -48,7 +41,7 @@ export function About() {
               </div>
             ) : null}
           </motion.dl>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

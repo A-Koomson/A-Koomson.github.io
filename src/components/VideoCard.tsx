@@ -1,13 +1,16 @@
+import { motion } from 'framer-motion'
 import { Play } from 'lucide-react'
 import { useState } from 'react'
 import type { Video } from '../types'
+import { duration, easeOut } from '../utils/motion'
 import { extractYouTubeId, youtubeThumbnail, youtubeWatchUrl } from '../utils/youtube'
 
 interface VideoCardProps {
   video: Video
+  index?: number
 }
 
-export function VideoCard({ video }: VideoCardProps) {
+export function VideoCard({ video, index = 0 }: VideoCardProps) {
   const id = extractYouTubeId(video.youtubeUrl)
   const [quality, setQuality] = useState<'maxresdefault' | 'hqdefault'>('maxresdefault')
 
@@ -24,7 +27,14 @@ export function VideoCard({ video }: VideoCardProps) {
   const thumbnail = youtubeThumbnail(id, quality)
 
   return (
-    <article className="video-card">
+    <motion.article
+      className="video-card"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -3, transition: { duration: 0.22, ease: easeOut } }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: duration.slow, delay: Math.min(index * 0.06, 0.24), ease: easeOut }}
+    >
       <a className="video-card__media" href={href} target="_blank" rel="noreferrer noopener">
         <img
           src={thumbnail}
@@ -53,6 +63,6 @@ export function VideoCard({ video }: VideoCardProps) {
           Watch on YouTube
         </a>
       </div>
-    </article>
+    </motion.article>
   )
 }
