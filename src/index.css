@@ -1,19 +1,24 @@
 :root {
-  --color-bg: #cdcbd6;
-  --color-accent: #d96846;
+  --color-bg: #e96a4c;
+  --color-header: #ffffff;
+  --color-footer: #2f3020;
+  --color-accent: #2f3020;
   --color-olive: #596235;
   --color-dark: #2f3020;
   --color-text: #2f3020;
-  --color-muted: color-mix(in srgb, #2f3020 68%, #cdcbd6);
-  --color-surface: color-mix(in srgb, #cdcbd6 78%, #ffffff);
+  --color-muted: color-mix(in srgb, #2f3020 78%, #e96a4c);
+  --color-surface: #ffffff;
   --color-surface-strong: #596235;
-  --color-on-accent: #2f3020;
-  --color-on-dark: #cdcbd6;
-  --color-on-olive: #cdcbd6;
+  --color-on-accent: #ffffff;
+  --color-on-dark: #f4f1ec;
+  --color-on-olive: #f4f1ec;
+  --color-header-text: #2f3020;
+  --color-footer-text: #f4f1ec;
+  --color-nav-active: #e96a4c;
   --color-border: color-mix(in srgb, #2f3020 16%, transparent);
-  --color-grid: color-mix(in srgb, #2f3020 8%, transparent);
-  --color-glow: color-mix(in srgb, #d96846 28%, transparent);
-  --shadow-soft: 0 16px 40px color-mix(in srgb, #2f3020 8%, transparent);
+  --color-grid: color-mix(in srgb, #2f3020 12%, transparent);
+  --color-glow: color-mix(in srgb, #2f3020 18%, transparent);
+  --shadow-soft: 0 16px 40px color-mix(in srgb, #2f3020 12%, transparent);
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
@@ -27,16 +32,20 @@
 }
 
 [data-theme='dark'] {
-  --color-bg: #2f3020;
-  --color-text: #cdcbd6;
-  --color-muted: color-mix(in srgb, #cdcbd6 72%, #2f3020);
-  --color-surface: color-mix(in srgb, #2f3020 82%, #cdcbd6);
+  --color-bg: #c24e38;
+  --color-header: #1f2016;
+  --color-footer: #14150f;
+  --color-text: #f4f1ec;
+  --color-muted: color-mix(in srgb, #f4f1ec 78%, #c24e38);
+  --color-surface: #2a2b1e;
+  --color-accent: #f4f1ec;
   --color-on-accent: #2f3020;
-  --color-on-dark: #cdcbd6;
-  --color-on-olive: #cdcbd6;
-  --color-border: color-mix(in srgb, #cdcbd6 16%, transparent);
-  --color-grid: color-mix(in srgb, #cdcbd6 8%, transparent);
-  --color-glow: color-mix(in srgb, #d96846 32%, transparent);
+  --color-header-text: #f4f1ec;
+  --color-footer-text: #f4f1ec;
+  --color-nav-active: #e96a4c;
+  --color-border: color-mix(in srgb, #f4f1ec 16%, transparent);
+  --color-grid: color-mix(in srgb, #f4f1ec 10%, transparent);
+  --color-glow: color-mix(in srgb, #e96a4c 28%, transparent);
   --shadow-soft: 0 16px 40px color-mix(in srgb, #000 28%, transparent);
   color-scheme: dark;
 }
@@ -136,7 +145,8 @@ button {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--color-bg);
+  background: var(--color-header);
+  color: var(--color-header-text);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -155,7 +165,7 @@ button {
   align-items: center;
   gap: 0.7rem;
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-header-text);
 }
 
 .navbar__mark {
@@ -163,9 +173,9 @@ button {
   height: 2.1rem;
   display: grid;
   place-items: center;
-  border: 1px solid var(--color-accent);
+  border: 1px solid var(--color-nav-active);
   border-radius: 8px;
-  color: var(--color-accent);
+  color: var(--color-nav-active);
   font-family: var(--font-display);
   font-size: 0.95rem;
 }
@@ -186,7 +196,7 @@ button {
 .navbar__desktop a {
   display: block;
   padding: 0.45rem 0.7rem;
-  color: var(--color-muted);
+  color: color-mix(in srgb, var(--color-header-text) 72%, transparent);
   text-decoration: none;
   font-size: 0.92rem;
   border-radius: 999px;
@@ -194,11 +204,11 @@ button {
 
 .navbar__desktop a:hover,
 .navbar__desktop a.is-active {
-  color: var(--color-text);
+  color: var(--color-header-text);
 }
 
 .navbar__desktop a.is-active {
-  color: var(--color-accent);
+  color: var(--color-nav-active);
 }
 
 .navbar__actions {
@@ -246,7 +256,8 @@ button {
 .mobile-menu {
   position: fixed;
   inset: var(--nav-height) 0 0;
-  background: var(--color-bg);
+  background: var(--color-header);
+  color: var(--color-header-text);
   padding: 1.5rem;
   overflow-y: auto;
   border-top: 1px solid var(--color-border);
@@ -263,7 +274,7 @@ button {
   align-items: baseline;
   gap: 1rem;
   padding: 1rem 0;
-  color: var(--color-text);
+  color: var(--color-header-text);
   text-decoration: none;
   font-family: var(--font-display);
   font-size: clamp(2rem, 8vw, 3rem);
@@ -271,7 +282,7 @@ button {
 }
 
 .mobile-menu a.is-active {
-  color: var(--color-accent);
+  color: var(--color-nav-active);
 }
 
 .mobile-menu a span {
@@ -419,7 +430,7 @@ button {
 }
 
 .button--secondary {
-  background: transparent;
+  background: var(--color-surface);
   color: var(--color-text);
   border-color: var(--color-border);
 }
@@ -1005,9 +1016,10 @@ button {
 }
 
 .footer {
-  border-top: 1px solid var(--color-border);
+  border-top: 0;
   padding: 2.4rem 0 2.6rem;
-  background: var(--color-bg);
+  background: var(--color-footer);
+  color: var(--color-footer-text);
 }
 
 .footer__inner {
@@ -1019,7 +1031,7 @@ button {
 
 .footer__brand {
   margin: 0 0 0.4rem;
-  color: var(--color-text);
+  color: var(--color-footer-text);
   font-family: var(--font-display);
   font-size: 1.4rem;
 }
@@ -1027,7 +1039,7 @@ button {
 .footer__copy,
 .footer__note {
   margin: 0;
-  color: var(--color-muted);
+  color: color-mix(in srgb, var(--color-footer-text) 72%, transparent);
   font-size: 0.92rem;
 }
 
@@ -1037,12 +1049,18 @@ button {
 }
 
 .footer__nav a {
-  color: var(--color-text);
+  color: var(--color-footer-text);
   text-decoration: none;
 }
 
 .footer__nav a:hover {
-  color: var(--color-accent);
+  color: var(--color-nav-active);
+}
+
+.footer .social-links__item {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--color-footer-text) 22%, transparent);
+  color: var(--color-footer-text);
 }
 
 .back-to-top {
