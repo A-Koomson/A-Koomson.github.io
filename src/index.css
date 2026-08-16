@@ -437,8 +437,7 @@ button {
 .contact__layout,
 .youtube__layout,
 .philosophy__inner,
-.page-header__inner,
-.home-cta__inner {
+.page-header__inner {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr);
   gap: 3.75rem 4.5rem;
@@ -852,11 +851,38 @@ button {
 .page-header {
   position: relative;
   overflow: hidden;
-  padding: 3.5rem 0 1.75rem;
-  background: var(--color-background);
+  padding: 3.4rem 0 0;
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+}
+
+.page-header__shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-header__shape--yellow {
+  left: -8%;
+  top: -58%;
+  width: 62%;
+  height: 72%;
+  background: var(--color-yellow);
+  border-radius: 0 0 58% 42%;
+}
+
+.page-header__shape--lime {
+  left: 14%;
+  top: -46%;
+  width: 48%;
+  height: 58%;
+  background: var(--color-green);
+  border-radius: 0 0 70% 50%;
+  opacity: 0.92;
 }
 
 .page-header .engineering-grid {
+  color: color-mix(in srgb, var(--color-on-brand) 14%, transparent);
   mask-image: radial-gradient(ellipse at 88% 42%, black 16%, transparent 72%);
 }
 
@@ -864,11 +890,13 @@ button {
   position: relative;
   z-index: 1;
   align-items: center;
+  padding-bottom: 1.25rem;
 }
 
 .page-header__title {
   font-size: clamp(2.6rem, 6vw, 4.6rem);
   margin: 0 0 0.85rem;
+  color: var(--color-on-brand);
 }
 
 .page-header__description {
@@ -876,11 +904,38 @@ button {
   max-width: 34rem;
   font-size: 1.08rem;
   line-height: 1.7;
+  color: color-mix(in srgb, var(--color-on-brand) 82%, transparent);
 }
 
 .page-header__figure {
   justify-self: end;
   width: min(22rem, 100%);
+}
+
+.page-header__orb {
+  width: min(20rem, 100%);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+  padding: 1.4rem;
+  background: var(--color-paper);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 10px color-mix(in srgb, var(--color-brand) 18%, transparent),
+    0 18px 36px color-mix(in srgb, #000 18%, transparent);
+}
+
+.page-header__waves {
+  position: relative;
+  z-index: 2;
+  height: 5rem;
+}
+
+.page-header__waves svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .technical-figure {
@@ -937,36 +992,31 @@ button {
   padding: 0 0 1.25rem;
 }
 
-.home-intro,
-.home-cta {
+.home-intro {
   padding: 4.25rem 0;
 }
 
+.home-cta {
+  padding: 2.6rem 0 2.4rem;
+  background: var(--color-footer);
+  color: var(--color-on-dark);
+}
+
 .home-cta__inner {
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.1rem;
+}
+
+.home-cta .page-kicker {
+  margin: 0;
 }
 
 .home-intro {
   background: var(--color-background);
-}
-
-.home-cta {
-  background: var(--color-dark);
-  color: var(--color-on-dark);
-}
-
-.home-cta .section-heading__title,
-.home-cta .section-heading__description {
-  color: var(--color-header);
-}
-
-.home-cta .section-heading__index,
-.home-cta .section-heading__eyebrow {
-  color: var(--color-yellow);
-}
-
-.home-cta .section-heading__description {
-  opacity: 0.86;
 }
 
 .home-cta .button--primary {
@@ -1549,7 +1599,7 @@ button {
 }
 
 .page-enter > .page-header + .section {
-  padding-top: 2rem;
+  padding-top: 1.1rem;
 }
 
 .timeline__role,
@@ -2239,7 +2289,6 @@ button {
   .youtube__layout,
   .philosophy__inner,
   .page-header__inner,
-  .home-cta__inner,
   .footer__inner,
   .case-study__layout,
   .section-heading--split {
@@ -2287,8 +2336,12 @@ button {
   }
 
   .page-header__figure {
-    justify-self: start;
-    width: min(18rem, 100%);
+    justify-self: center;
+  }
+
+  .page-header__orb {
+    width: min(16rem, 72vw);
+    padding: 1rem;
   }
 
   .projects__featured,
@@ -2309,10 +2362,18 @@ button {
     grid-column: span 12;
   }
 
-  .section,
-  .page-header {
+  .section {
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
+  }
+
+  .page-header {
+    padding-top: 2.6rem;
+    padding-bottom: 0;
+  }
+
+  .page-header__waves {
+    height: 4.2rem;
   }
 
   .case-aside {

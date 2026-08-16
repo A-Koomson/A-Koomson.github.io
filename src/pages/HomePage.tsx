@@ -134,18 +134,11 @@ export function HomePage() {
       </section>
       <section className="home-cta">
         <div className="container home-cta__inner">
-          <SectionHeading
-            index="06"
-            eyebrow="Contact"
-            title="Let's build something"
-            description="For work, collaboration, or a conversation about systems."
-          />
-          <Reveal>
-            <Link className="button button--primary" to="/contact/">
-              Get in Touch
-              <ArrowRight size={16} />
-            </Link>
-          </Reveal>
+          <p className="page-kicker">06 / Contact</p>
+          <Link className="button button--primary" to="/contact/">
+            Get in Touch
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
     </>
