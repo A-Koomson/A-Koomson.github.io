@@ -3,6 +3,7 @@ import { experience } from '../data/experience'
 import { learning } from '../data/learning'
 import { navItems, profile } from '../data/profile'
 import { projects } from '../data/projects'
+import { services } from '../data/services'
 import { skillCategories } from '../data/skills'
 import { socialLinks } from '../data/socialLinks'
 import { videos } from '../data/videos'
@@ -56,6 +57,10 @@ export function getSocialLinks() {
 
 export function getLearning() {
   return learning
+}
+
+export function getServices() {
+  return services
 }
 
 export function getSocialLink(id: 'github' | 'linkedin' | 'youtube' | 'email') {

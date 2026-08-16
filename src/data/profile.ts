@@ -9,8 +9,8 @@ export const profile: Profile = {
   supportingStatement:
     'I build backend systems, explore how software works beneath the surface, and continuously turn what I learn into practical projects.',
   about: [
-    'Alexander Baafi Koomson is a Software Engineer and Systems Builder focused on backend engineering and the architecture behind reliable software. He enjoys understanding not only how to build applications, but why systems behave the way they do — how data moves, where failures happen, and what makes software hold up over time.',
-    'He is currently pursuing a BSc in Computer Science at Accra Technical University and expects to complete it next year, God willing. His work sits at the intersection of backend systems, databases, and the discipline of learning how software actually works.',
+    'I am a Software Engineer and Systems Builder. I spend most of my time on backend work — APIs, databases, and the structure that keeps software reliable after the first version ships.',
+    'I care about why a system behaves the way it does: how data moves, where it fails, and what makes it hold up. I am studying Computer Science at Accra Technical University, building practical projects as I learn, and sharing that process through Systems by Koomson.',
   ],
   location: 'Accra, Ghana',
   email: 'koomsonalexander54@gmail.com',
@@ -18,9 +18,9 @@ export const profile: Profile = {
   siteUrl: 'https://a-koomson.github.io',
   youtubeBrand: {
     name: 'Systems by Koomson',
-    tagline: 'Exploring the systems behind the software.',
+    tagline: 'Building. Learning. Explaining.',
     description:
-      'Systems by Koomson is where I explore software engineering, backend systems, architecture, technology, and the ideas behind the systems we build.',
+      'Systems by Koomson is where I explore software engineering, backend development, system design, and the ideas behind how software actually works.',
     url: 'https://www.youtube.com/@SystemsbyKoomson',
   },
   philosophy: {
@@ -42,6 +42,7 @@ export const profile: Profile = {
 export const navItems: NavItem[] = [
   { id: 'home', label: 'Home', href: '/' },
   { id: 'about', label: 'About', href: '/about/' },
+  { id: 'services', label: 'Services', href: '/services/' },
   { id: 'projects', label: 'Projects', href: '/projects/' },
   { id: 'skills', label: 'Skills', href: '/skills/' },
   { id: 'experience', label: 'Experience', href: '/experience/' },

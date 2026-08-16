@@ -9,6 +9,7 @@ import { HomePage } from './pages/HomePage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { ProjectDetailPage } from './pages/ProjectDetailPage'
 import { ProjectsPage } from './pages/ProjectsPage'
+import { ServicesPage } from './pages/ServicesPage'
 import { SkillsPage } from './pages/SkillsPage'
 import { YouTubePage } from './pages/YouTubePage'
 
@@ -22,6 +23,9 @@ export default function App() {
               <Route index element={<HomePage />} />
               <Route path="about">
                 <Route index element={<AboutPage />} />
+              </Route>
+              <Route path="services">
+                <Route index element={<ServicesPage />} />
               </Route>
               <Route path="projects">
                 <Route index element={<ProjectsPage />} />

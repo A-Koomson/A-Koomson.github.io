@@ -20,17 +20,17 @@ export function Hero() {
       <EngineeringGrid />
       <div className="hero__inner">
         <div className="hero__copy">
-          <motion.p className="hero__kicker page-kicker" variants={fadeUpDelay(0.1)} initial="hidden" animate="visible">
+          <WordReveal className="hero__name" text={profile.fullName} delay={0.16} />
+          <motion.p className="hero__kicker page-kicker" variants={fadeUpDelay(0.26)} initial="hidden" animate="visible">
             {profile.title}
           </motion.p>
-          <WordReveal className="hero__name" text={profile.fullName} />
-          <motion.p className="hero__tagline" variants={fadeUpDelay(0.28)} initial="hidden" animate="visible">
+          <motion.p className="hero__tagline" variants={fadeUpDelay(0.34)} initial="hidden" animate="visible">
             {profile.tagline}
           </motion.p>
-          <motion.p className="hero__support" variants={fadeUpDelay(0.28)} initial="hidden" animate="visible">
+          <motion.p className="hero__support" variants={fadeUpDelay(0.38)} initial="hidden" animate="visible">
             {profile.supportingStatement}
           </motion.p>
-          <motion.div className="hero__actions" variants={fadeUpDelay(0.38)} initial="hidden" animate="visible">
+          <motion.div className="hero__actions" variants={fadeUpDelay(0.44)} initial="hidden" animate="visible">
             <Link className="button button--primary" to="/projects/">
               View My Work
               <ArrowRight size={16} strokeWidth={1.8} />
@@ -56,16 +56,16 @@ export function Hero() {
               </button>
             )}
           </motion.div>
-          <motion.div variants={fadeUpDelay(0.42)} initial="hidden" animate="visible">
+          <motion.div variants={fadeUpDelay(0.52)} initial="hidden" animate="visible">
             <SocialLinks links={social} />
           </motion.div>
         </div>
 
         <motion.div
           className="hero__portrait"
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
           <ProfileImage />
         </motion.div>

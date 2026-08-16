@@ -97,3 +97,11 @@ export interface LearningItem {
   name: string
   note: string
 }
+
+export interface Service {
+  id: string
+  title: string
+  description: string
+  technologies: string[]
+  icon: 'backend' | 'web' | 'api' | 'database' | 'architecture' | 'cloud' | 'custom'
+}

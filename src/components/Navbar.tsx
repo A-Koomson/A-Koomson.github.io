@@ -17,6 +17,7 @@ export function Navbar() {
   const youtube = getSocialLink('youtube')
   const location = useLocation()
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const menuId = useId()
 
@@ -26,6 +27,15 @@ export function Navbar() {
   useEffect(() => {
     setOpen(false)
   }, [location.pathname])
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 12)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
@@ -47,15 +57,18 @@ export function Navbar() {
 
   return (
     <motion.header
-      className="navbar"
+      className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="navbar__inner">
-        <NavLink className="navbar__brand" to="/" aria-label={`${profile.shortName} home`}>
+        <NavLink className="navbar__brand" to="/" aria-label={`${profile.youtubeBrand.name} home`}>
           <span className="navbar__mark">{profile.initials}</span>
-          <span className="navbar__name">Koomson</span>
+          <span className="navbar__name">
+            <span className="navbar__name-primary">{profile.shortName}</span>
+            <span className="navbar__name-secondary">{profile.youtubeBrand.name}</span>
+          </span>
         </NavLink>
 
         <nav className="navbar__desktop" aria-label="Primary">

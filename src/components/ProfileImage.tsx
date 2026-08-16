@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { useState, type MouseEvent } from 'react'
-import profileImage from '../assets/profile/profile.jpg'
+import profileImage from '../assets/profile/profile.png'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { getProfile } from '../services/content'
 

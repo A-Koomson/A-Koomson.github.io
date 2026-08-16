@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { getNavItems, getProfile, getSocialLinks } from '../services/content'
+import { getNavItems, getProfile, getSocialLink, getSocialLinks } from '../services/content'
 import { fadeUp, viewportOnce } from '../utils/motion'
 import { SocialLinks } from './SocialLinks'
 
@@ -8,6 +8,7 @@ export function Footer() {
   const profile = getProfile()
   const year = new Date().getFullYear()
   const navItems = getNavItems()
+  const email = getSocialLink('email')
 
   return (
     <motion.footer
@@ -19,10 +20,16 @@ export function Footer() {
     >
       <div className="container footer__inner">
         <div>
-          <p className="footer__brand">{profile.shortName}</p>
+          <p className="footer__brand">{profile.fullName}</p>
           <p className="footer__note">{profile.title}</p>
+          <p className="footer__note">{profile.youtubeBrand.name}</p>
+          {email ? (
+            <p className="footer__copy">
+              <a href={email.href}>{profile.email}</a>
+            </p>
+          ) : null}
           <p className="footer__copy">
-            © {year} {profile.fullName}. {profile.youtubeBrand.name}.
+            © {year} {profile.fullName}.
           </p>
         </div>
         <nav className="footer__nav" aria-label="Footer">

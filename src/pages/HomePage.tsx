@@ -5,6 +5,7 @@ import { ProjectCard, projectCardTone } from '../components/ProjectCard'
 import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
 import { Seo } from '../components/Seo'
+import { Services } from '../components/Services'
 import { SkillCard } from '../components/SkillCard'
 import {
   getEducation,
@@ -49,6 +50,17 @@ export function HomePage() {
         <div className="container">
           <SectionHeading
             index="02"
+            eyebrow="What I can build"
+            title="Services"
+            description="Software engineering work I can take on — backend systems, web applications, and the architecture that holds them together."
+          />
+          <Services />
+        </div>
+      </section>
+      <section className="section section--olive">
+        <div className="container">
+          <SectionHeading
+            index="03"
             eyebrow="Selected work"
             title="Projects"
             description="A growing set of systems and applications. Each card opens a dedicated case study."
@@ -66,10 +78,10 @@ export function HomePage() {
           </Reveal>
         </div>
       </section>
-      <section className="section section--olive">
+      <section className="section">
         <div className="container">
           <SectionHeading
-            index="03"
+            index="04"
             eyebrow="Focus"
             title="Technical stack"
             description="Backend, data, and the tools used to build and operate software. AWS is an area of active learning."
@@ -88,9 +100,9 @@ export function HomePage() {
           </Reveal>
         </div>
       </section>
-      <section className="section">
+      <section className="section section--olive">
         <div className="container">
-          <SectionHeading index="04" eyebrow="Work" title="Experience" />
+          <SectionHeading index="05" eyebrow="Work" title="Experience" />
           {experience ? (
             <Reveal>
               <div className="timeline__card">
@@ -115,7 +127,7 @@ export function HomePage() {
       <section className="home-cta">
         <div className="container">
           <SectionHeading
-            index="05"
+            index="06"
             eyebrow="Contact"
             title="Let's connect"
             description="For work, collaboration, or a conversation about systems."

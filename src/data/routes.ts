@@ -1,5 +1,6 @@
 export const staticPageRoutes = [
   'about',
+  'services',
   'projects',
   'skills',
   'experience',
