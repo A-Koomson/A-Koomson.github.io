@@ -14,6 +14,7 @@ export function ExperiencePage() {
         eyebrow="Experience"
         title="Where I've Worked"
         description="A career journey from teaching and management into software engineering. Dates and responsibilities are listed only where they have been confirmed."
+        figure="experience"
       />
       <Experience />
       <Education index="02" />

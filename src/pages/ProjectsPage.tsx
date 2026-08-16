@@ -18,6 +18,7 @@ export function ProjectsPage() {
         eyebrow="Projects"
         title="Things I've Built"
         description="Each project opens as a case study. Details, repositories, and live links are added as they are documented."
+        figure="projects"
       />
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">

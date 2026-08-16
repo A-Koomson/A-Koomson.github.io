@@ -67,8 +67,6 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="hero__portrait-orbit" aria-hidden="true" />
-          <span className="hero__portrait-node" aria-hidden="true" />
           <ProfileImage />
         </motion.div>
       </div>

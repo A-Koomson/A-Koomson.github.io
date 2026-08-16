@@ -21,7 +21,6 @@ export function Footer() {
       <div className="container footer__inner">
         <div className="footer__brand-block">
           <p className="footer__brand">{profile.shortName}</p>
-          <p className="footer__note">{profile.title}</p>
           <p className="footer__note">{profile.youtubeBrand.name}</p>
         </div>
         <nav className="footer__nav" aria-label="Footer">
@@ -33,13 +32,11 @@ export function Footer() {
         </nav>
         <div className="footer__connect">
           <SocialLinks links={getSocialLinks()} />
-          {email ? (
-            <p className="footer__copy">
-              <a href={email.href}>{profile.email}</a>
-            </p>
-          ) : null}
           <p className="footer__copy">
-            © {year} {profile.fullName}.
+            {email ? <a href={email.href}>{profile.email}</a> : null}
+            <span>
+              © {year} {profile.fullName}
+            </span>
           </p>
         </div>
       </div>

@@ -13,6 +13,7 @@ export function ContactPage() {
         eyebrow="Contact"
         title="Let's Build Something"
         description="Have a project, idea, or opportunity? Let's connect."
+        figure="contact"
       />
       <Contact />
     </>

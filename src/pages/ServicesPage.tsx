@@ -13,6 +13,7 @@ export function ServicesPage() {
         eyebrow="Services"
         title="What I Build"
         description="Areas of software engineering I can help with — practical systems, not an agency pitch."
+        figure="services"
       />
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">

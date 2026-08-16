@@ -14,6 +14,7 @@ export function SkillsPage() {
         eyebrow="Skills"
         title="Tools I Work With"
         description="A working stack across backend, frontend, and the systems that connect them. AWS is an area of active learning, not claimed expertise."
+        figure="skills"
       />
       <Skills />
       <CurrentlyLearning />

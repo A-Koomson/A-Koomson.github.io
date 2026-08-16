@@ -1,13 +1,17 @@
-export function EngineeringGrid() {
+interface EngineeringGridProps {
+  patternId?: string
+}
+
+export function EngineeringGrid({ patternId = 'ak-grid' }: EngineeringGridProps) {
   return (
     <div className="engineering-grid" aria-hidden="true">
       <svg className="engineering-grid__svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
         <defs>
-          <pattern id="ak-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+          <pattern id={patternId} width="48" height="48" patternUnits="userSpaceOnUse">
             <path d="M 48 0 L 0 0 0 48" fill="none" stroke="currentColor" strokeWidth="0.6" />
           </pattern>
         </defs>
-        <rect width="1200" height="800" fill="url(#ak-grid)" />
+        <rect width="1200" height="800" fill={`url(#${patternId})`} />
         <g className="engineering-grid__nodes" fill="currentColor">
           <circle cx="180" cy="140" r="2.4" />
           <circle cx="420" cy="220" r="2.4" />

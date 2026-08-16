@@ -34,7 +34,9 @@ export function ProfileImage() {
       onMouseLeave={onLeave}
       style={{ x: springX, y: springY }}
     >
+      <span className="profile-image__plate" aria-hidden="true" />
       <span className="profile-image__glow" aria-hidden="true" />
+      <span className="profile-image__orbit" aria-hidden="true" />
       <span className="profile-image__ring" aria-hidden="true" />
       <span className="profile-image__frame">
         {failed ? (
@@ -53,6 +55,8 @@ export function ProfileImage() {
           />
         )}
       </span>
+      <span className="profile-image__node profile-image__node--one" aria-hidden="true" />
+      <span className="profile-image__node profile-image__node--two" aria-hidden="true" />
     </motion.div>
   )
 }

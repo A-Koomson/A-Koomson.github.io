@@ -15,7 +15,7 @@ export function AboutPage() {
         title="About Alexander Baafi Koomson — Software Engineer"
         description="About Alexander Baafi Koomson, a Software Engineer and Systems Builder focused on backend engineering, architecture, and how reliable software systems work."
       />
-      <PageHeader eyebrow="About" title="Who I Am" description={profile.supportingStatement} />
+      <PageHeader eyebrow="About" title="Who I Am" description={profile.supportingStatement} figure="architecture" />
       <About />
       <Philosophy />
       <section className="section identity-section">
