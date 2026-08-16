@@ -422,14 +422,19 @@ button {
   margin-top: 2rem;
 }
 
-.hero {
+.hero,
+.page-header {
   position: relative;
+  overflow: hidden;
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+}
+
+.hero {
   min-height: min(44rem, calc(100svh - var(--nav-height)));
   display: grid;
   align-items: center;
-  overflow: hidden;
-  padding: 3.75rem 0 0;
-  background: var(--color-background);
+  padding: 3.6rem 0 0;
 }
 
 .hero__inner,
@@ -446,48 +451,30 @@ button {
 
 .hero__inner {
   position: relative;
-  z-index: 1;
-  padding-bottom: 1.5rem;
-}
-
-.hero__arc {
-  position: absolute;
-  right: -7%;
-  top: -18%;
-  width: min(38rem, 56vw);
-  height: min(38rem, 56vw);
-  border-radius: 50%;
-  border: 2.6rem solid var(--color-brand);
-  border-left-color: transparent;
-  border-bottom-color: color-mix(in srgb, var(--color-yellow) 55%, var(--color-brand));
-  transform: rotate(28deg);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero__arc--soft {
-  right: 4%;
-  top: 8%;
-  width: min(28rem, 42vw);
-  height: min(28rem, 42vw);
-  border-width: 1.4rem;
-  border-color: color-mix(in srgb, var(--color-green) 55%, transparent);
-  border-right-color: transparent;
-  border-top-color: transparent;
-  transform: rotate(-18deg);
-}
-
-.hero__waves {
-  position: relative;
   z-index: 2;
-  height: 5.5rem;
-  margin-top: 0.5rem;
+  padding-bottom: 1.35rem;
 }
 
-.hero__waves svg {
+.band-waves--top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4.6rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.band-waves--top svg {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.hero .engineering-grid,
+.page-header .engineering-grid {
+  color: color-mix(in srgb, var(--color-on-brand) 14%, transparent);
+  mask-image: radial-gradient(ellipse at 78% 42%, black 18%, transparent 74%);
 }
 
 .hero__wave--yellow {
@@ -565,9 +552,56 @@ button {
 }
 
 .hero__name {
-  font-size: clamp(3rem, 7vw, 6.1rem);
-  margin: 0 0 1rem;
-  max-width: 11ch;
+  font-size: clamp(2.8rem, 6.4vw, 5.4rem);
+  margin: 0 0 0.85rem;
+  max-width: 12ch;
+  color: var(--color-on-brand);
+}
+
+.hero__role {
+  margin: 0 0 0.85rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+  font-weight: 500;
+}
+
+.hero__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  color: var(--color-on-brand);
+  margin: 0 0 1.1rem;
+}
+
+.hero__support {
+  max-width: 38rem;
+  margin: 0 0 1.2rem;
+  font-size: 1.05rem;
+  color: color-mix(in srgb, var(--color-on-brand) 82%, transparent);
+}
+
+.hero .button--secondary {
+  color: var(--color-on-brand);
+  border-color: color-mix(in srgb, var(--color-on-brand) 55%, transparent);
+}
+
+.hero .button--ghost {
+  background: transparent;
+  color: var(--color-on-brand);
+  border-color: color-mix(in srgb, var(--color-on-brand) 28%, transparent);
+}
+
+.hero .social-links__item {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--color-on-brand) 28%, transparent);
+  color: var(--color-on-brand);
+}
+
+.hero .social-links__item:hover {
+  color: var(--color-yellow);
+  border-color: var(--color-yellow);
 }
 
 .word-reveal__item {
@@ -591,15 +625,6 @@ button {
   display: block;
 }
 
-.hero__tagline {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
-  color: var(--color-text);
-  margin: 0 0 1.1rem;
-}
-
-.hero__support,
 .section-heading__description,
 .about__text,
 .philosophy__copy,
@@ -726,10 +751,33 @@ button {
 
 .hero__portrait {
   position: relative;
+  z-index: 2;
   display: grid;
   place-items: center;
   justify-self: end;
-  width: min(24rem, 100%);
+  width: min(22rem, 100%);
+}
+
+.hero .page-header__orb {
+  width: min(22rem, 100%);
+  padding: 0.55rem;
+  overflow: hidden;
+}
+
+.hero .page-header__orb .profile-image {
+  width: 100%;
+}
+
+.hero .page-header__orb .profile-image__plate,
+.hero .page-header__orb .profile-image__glow,
+.hero .page-header__orb .profile-image__orbit,
+.hero .page-header__orb .profile-image__node {
+  display: none;
+}
+
+.hero .page-header__orb .profile-image__frame {
+  border-width: 2px;
+  box-shadow: none;
 }
 
 .profile-image {
@@ -849,11 +897,14 @@ button {
 }
 
 .page-header {
-  position: relative;
-  overflow: hidden;
   padding: 3.4rem 0 0;
-  background: var(--color-brand);
-  color: var(--color-on-brand);
+}
+
+.page-header__inner {
+  position: relative;
+  z-index: 2;
+  align-items: center;
+  padding-bottom: 1.25rem;
 }
 
 .page-header__shape {
@@ -879,18 +930,6 @@ button {
   background: var(--color-green);
   border-radius: 0 0 70% 50%;
   opacity: 0.92;
-}
-
-.page-header .engineering-grid {
-  color: color-mix(in srgb, var(--color-on-brand) 14%, transparent);
-  mask-image: radial-gradient(ellipse at 88% 42%, black 16%, transparent 72%);
-}
-
-.page-header__inner {
-  position: relative;
-  z-index: 1;
-  align-items: center;
-  padding-bottom: 1.25rem;
 }
 
 .page-header__title {
@@ -2303,26 +2342,13 @@ button {
 
   .hero {
     min-height: 0;
-    padding: 2.5rem 0 0;
-  }
-
-  .hero__arc,
-  .hero__arc--soft {
-    width: min(22rem, 78vw);
-    height: min(22rem, 78vw);
-    border-width: 1.4rem;
-    right: -18%;
-    top: -8%;
-  }
-
-  .hero__waves {
-    height: 4.2rem;
+    padding: 2.2rem 0 0;
   }
 
   .hero__portrait {
     order: -1;
     justify-self: center;
-    width: min(20rem, 100%);
+    width: min(18.5rem, 78vw);
   }
 
   .profile-image {

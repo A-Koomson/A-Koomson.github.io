@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useCvAvailable } from '../hooks/useCvAvailable'
 import { getProfile, getSocialLinks } from '../services/content'
 import { fadeUpDelay } from '../utils/motion'
-import { EngineeringGrid } from './EngineeringGrid'
+import { BandDecor, BandWavesBottom } from './BandDecor'
 import { ProfileImage } from './ProfileImage'
 import { SocialLinks } from './SocialLinks'
 import { WordReveal } from './WordReveal'
@@ -17,13 +17,14 @@ export function Hero() {
 
   return (
     <section className="hero">
-      <span className="hero__arc" aria-hidden="true" />
-      <span className="hero__arc hero__arc--soft" aria-hidden="true" />
-      <EngineeringGrid />
+      <BandDecor patternId="hero-grid" />
       <div className="container hero__inner">
         <div className="hero__copy">
+          <motion.p className="hero__kicker page-kicker" variants={fadeUpDelay(0.12)} initial="hidden" animate="visible">
+            Home
+          </motion.p>
           <WordReveal className="hero__name" text={profile.fullName} delay={0.16} accentLast />
-          <motion.p className="hero__kicker page-kicker" variants={fadeUpDelay(0.26)} initial="hidden" animate="visible">
+          <motion.p className="hero__role" variants={fadeUpDelay(0.28)} initial="hidden" animate="visible">
             {profile.title}
           </motion.p>
           <motion.p className="hero__tagline" variants={fadeUpDelay(0.34)} initial="hidden" animate="visible">
@@ -69,25 +70,12 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
-          <ProfileImage />
+          <div className="page-header__orb">
+            <ProfileImage />
+          </div>
         </motion.div>
       </div>
-      <div className="hero__waves" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-          <path
-            className="hero__wave hero__wave--yellow"
-            d="M0 72 C 240 120 480 12 720 48 C 960 84 1200 18 1440 60 L1440 120 L0 120 Z"
-          />
-          <path
-            className="hero__wave hero__wave--green"
-            d="M0 88 C 260 40 520 110 780 74 C 1040 38 1240 96 1440 70 L1440 120 L0 120 Z"
-          />
-          <path
-            className="hero__wave hero__wave--paper"
-            d="M0 102 C 300 80 560 118 860 96 C 1120 76 1280 110 1440 92 L1440 120 L0 120 Z"
-          />
-        </svg>
-      </div>
+      <BandWavesBottom />
     </section>
   )
 }
