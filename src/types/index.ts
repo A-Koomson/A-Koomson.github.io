@@ -76,7 +76,14 @@ export interface Experience {
   company: string
   role: string
   dates: string
+  summary?: string
+  chapter?: string
   responsibilities: string[]
+}
+
+export interface IdentityFact {
+  label: string
+  value: string
 }
 
 export interface Education {

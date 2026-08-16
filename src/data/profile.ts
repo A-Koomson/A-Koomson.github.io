@@ -20,7 +20,7 @@ export const profile: Profile = {
     name: 'Systems by Koomson',
     tagline: 'Building. Learning. Explaining.',
     description:
-      'Systems by Koomson is where I explore software engineering, backend development, system design, and the ideas behind how software actually works.',
+      'Exploring software engineering, backend systems, architecture, and the ideas behind the systems we build.',
     url: 'https://www.youtube.com/@SystemsbyKoomson',
   },
   philosophy: {

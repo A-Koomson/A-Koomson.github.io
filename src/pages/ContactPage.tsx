@@ -11,8 +11,8 @@ export function ContactPage() {
       />
       <PageHeader
         eyebrow="Contact"
-        title="Let's Connect"
-        description="For work, collaboration, or a conversation about systems — email is the most direct path."
+        title="Let's Build Something"
+        description="Have a project, idea, or opportunity? Let's connect."
       />
       <Contact />
     </>

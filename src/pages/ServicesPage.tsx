@@ -10,8 +10,8 @@ export function ServicesPage() {
         description="Software engineering services from Alexander Baafi Koomson, including backend development, APIs, databases, web applications, and system design."
       />
       <PageHeader
-        eyebrow="Work I can take on"
-        title="Services"
+        eyebrow="Services"
+        title="What I Build"
         description="Areas of software engineering I can help with — practical systems, not an agency pitch."
       />
       <section className="section" style={{ paddingTop: 0 }}>

@@ -18,7 +18,7 @@ export function Hero() {
   return (
     <section className="hero">
       <EngineeringGrid />
-      <div className="hero__inner">
+      <div className="container hero__inner">
         <div className="hero__copy">
           <WordReveal className="hero__name" text={profile.fullName} delay={0.16} />
           <motion.p className="hero__kicker page-kicker" variants={fadeUpDelay(0.26)} initial="hidden" animate="visible">
@@ -67,6 +67,8 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
+          <span className="hero__portrait-orbit" aria-hidden="true" />
+          <span className="hero__portrait-node" aria-hidden="true" />
           <ProfileImage />
         </motion.div>
       </div>

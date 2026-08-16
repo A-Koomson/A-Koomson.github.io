@@ -15,8 +15,8 @@ export function ProjectsPage() {
         description="Selected software projects by Alexander Baafi Koomson, spanning backend systems, mobile applications, and practical engineering work."
       />
       <PageHeader
-        eyebrow="Work"
-        title="Projects"
+        eyebrow="Projects"
+        title="Things I've Built"
         description="Each project opens as a case study. Details, repositories, and live links are added as they are documented."
       />
       <section className="section" style={{ paddingTop: 0 }}>

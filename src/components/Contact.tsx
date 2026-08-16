@@ -10,43 +10,83 @@ export function Contact() {
   const linkedin = getSocialLink('linkedin')
   const youtube = getSocialLink('youtube')
 
+  const channels = [
+    email
+      ? {
+          id: 'email',
+          href: email.href,
+          label: 'Email',
+          value: profile.email,
+          icon: <Mail size={18} strokeWidth={1.7} />,
+          external: false,
+        }
+      : null,
+    linkedin
+      ? {
+          id: 'linkedin',
+          href: linkedin.href,
+          label: 'LinkedIn',
+          value: 'Alexander Koomson',
+          icon: <LinkedinIcon size={18} />,
+          external: true,
+        }
+      : null,
+    github
+      ? {
+          id: 'github',
+          href: github.href,
+          label: 'GitHub',
+          value: 'A-Koomson',
+          icon: <GithubIcon size={18} />,
+          external: true,
+        }
+      : null,
+    youtube
+      ? {
+          id: 'youtube',
+          href: youtube.href,
+          label: 'YouTube',
+          value: profile.youtubeBrand.name,
+          icon: <YoutubeIcon size={18} />,
+          external: true,
+        }
+      : null,
+  ].filter((channel): channel is NonNullable<typeof channel> => channel !== null)
+
   return (
     <section className="section contact">
-      <div className="container">
+      <div className="container contact__layout">
         <Reveal>
-          <div className="contact__panel">
-            <a className="contact__email" href={`mailto:${profile.email}`}>
-              <Mail size={20} strokeWidth={1.7} />
-              {profile.email}
+          <div className="contact__lead">
+            <p className="page-kicker">Next step</p>
+            <h2>Have a project, idea, or opportunity?</h2>
+            <p>Let&apos;s connect. Email is the most direct path.</p>
+            <a className="button button--primary" href={`mailto:${profile.email}`}>
+              Get in Touch
+              <Mail size={16} strokeWidth={1.8} />
             </a>
-            <div className="contact__channels">
-              {email ? (
-                <a className="contact__channel" href={email.href}>
-                  <Mail size={18} />
-                  Email
-                </a>
-              ) : null}
-              {linkedin ? (
-                <a className="contact__channel" href={linkedin.href} target="_blank" rel="noreferrer noopener">
-                  <LinkedinIcon size={18} />
-                  LinkedIn
-                </a>
-              ) : null}
-              {github ? (
-                <a className="contact__channel" href={github.href} target="_blank" rel="noreferrer noopener">
-                  <GithubIcon size={18} />
-                  GitHub
-                </a>
-              ) : null}
-              {youtube ? (
-                <a className="contact__channel" href={youtube.href} target="_blank" rel="noreferrer noopener">
-                  <YoutubeIcon size={18} />
-                  YouTube
-                </a>
-              ) : null}
-            </div>
           </div>
         </Reveal>
+        <div className="contact__channels">
+          {channels.map((channel, index) => (
+            <Reveal key={channel.id} delay={index * 0.06}>
+              <a
+                className="contact__channel"
+                href={channel.href}
+                target={channel.external ? '_blank' : undefined}
+                rel={channel.external ? 'noreferrer noopener' : undefined}
+              >
+                <span className="contact__channel-icon" aria-hidden="true">
+                  {channel.icon}
+                </span>
+                <span>
+                  <span className="contact__channel-label">{channel.label}</span>
+                  <span className="contact__channel-value">{channel.value}</span>
+                </span>
+              </a>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   )

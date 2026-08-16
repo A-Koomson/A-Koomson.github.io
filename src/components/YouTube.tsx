@@ -11,9 +11,27 @@ export function YouTube() {
   return (
     <section className="section youtube">
       <div className="container">
-        <Reveal>
-          <p className="youtube__intro">{youtubeBrand.description}</p>
-        </Reveal>
+        <div className="youtube__layout">
+          <Reveal>
+            <p className="youtube__intro">{youtubeBrand.description}</p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <aside className="youtube__aside">
+              <p className="youtube__aside-label">Channel</p>
+              <p className="youtube__aside-name">{youtubeBrand.name}</p>
+              <p className="youtube__aside-tag">{youtubeBrand.tagline}</p>
+              <a
+                className="button button--primary"
+                href={youtubeBrand.url}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Visit YouTube
+                <ExternalLink size={16} strokeWidth={1.8} />
+              </a>
+            </aside>
+          </Reveal>
+        </div>
         {videos.length > 0 ? (
           <div className="youtube__grid">
             {videos.map((video, index) => (
@@ -21,26 +39,17 @@ export function YouTube() {
             ))}
           </div>
         ) : (
-          <Reveal>
+          <Reveal delay={0.1}>
             <div className="youtube__empty">
+              <p className="youtube__empty-label">Studio</p>
+              <h2>New explorations are on the way.</h2>
               <p>
-                New explorations are on the way. The channel is the living notebook for systems, backend engineering, and
-                the ideas behind the software we build.
+                The channel is the living notebook for systems, backend engineering, and the ideas behind the
+                software we build.
               </p>
             </div>
           </Reveal>
         )}
-        <Reveal delay={0.08}>
-          <a
-            className="button button--primary youtube__channel"
-            href={youtubeBrand.url}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Visit the YouTube Channel
-            <ExternalLink size={16} strokeWidth={1.8} />
-          </a>
-        </Reveal>
       </div>
     </section>
   )

@@ -22,7 +22,7 @@ export function SectionHeading({
 
   return (
     <motion.header
-      className={`section-heading section-heading--${align}`}
+      className={`section-heading section-heading--${align}${description ? ' section-heading--split' : ''}`}
       variants={stagger}
       initial="hidden"
       whileInView="visible"

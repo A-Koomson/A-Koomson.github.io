@@ -26,13 +26,16 @@ export function Services() {
       whileInView="visible"
       viewport={viewportOnce}
     >
-      {items.map((service) => {
+      {items.map((service, index) => {
         const Icon = icons[service.icon]
         return (
           <motion.article key={service.id} className="service-card" variants={fadeUp}>
-            <span className="service-card__icon" aria-hidden="true">
-              <Icon size={18} strokeWidth={1.7} />
-            </span>
+            <div className="service-card__top">
+              <span className="service-card__index">{String(index + 1).padStart(2, '0')}</span>
+              <span className="service-card__icon" aria-hidden="true">
+                <Icon size={18} strokeWidth={1.7} />
+              </span>
+            </div>
             <h3>{service.title}</h3>
             <p>{service.description}</p>
             <div className="service-card__tech">

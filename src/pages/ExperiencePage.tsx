@@ -11,12 +11,12 @@ export function ExperiencePage() {
         description="Professional experience and education for Alexander Baafi Koomson, Software Engineer and Systems Builder."
       />
       <PageHeader
-        eyebrow="Career"
-        title="Experience"
-        description="Roles and responsibilities are listed only where they have been confirmed."
+        eyebrow="Experience"
+        title="Where I've Worked"
+        description="A career journey from teaching and management into software engineering. Dates and responsibilities are listed only where they have been confirmed."
       />
       <Experience />
-      <Education />
+      <Education index="02" />
     </>
   )
 }

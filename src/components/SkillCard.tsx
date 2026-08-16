@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import type { Skill } from '../types'
 import { easeOut } from '../utils/motion'
+import { SkillIcon } from './SkillIcon'
 
 interface SkillCardProps {
   skill: Skill
@@ -17,13 +18,13 @@ export function SkillCard({ skill, index }: SkillCardProps) {
       whileInView={{
         opacity: 1,
         y: 0,
-        transition: { duration: 0.4, delay: Math.min(index * 0.04, 0.24), ease: easeOut },
+        transition: { duration: 0.4, delay: Math.min(index * 0.05, 0.28), ease: easeOut },
       }}
-      whileHover={{ y: -3, transition: { duration: 0.22, ease: easeOut } }}
+      whileHover={{ y: -4, transition: { duration: 0.22, ease: easeOut } }}
       viewport={{ once: true, amount: 0.3 }}
     >
       <span className="skill-card__mark" aria-hidden="true">
-        {skill.name.charAt(0)}
+        <SkillIcon name={skill.name} />
       </span>
       <div className="skill-card__body">
         <h3>{skill.name}</h3>

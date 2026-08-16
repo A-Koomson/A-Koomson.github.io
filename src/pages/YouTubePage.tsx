@@ -12,7 +12,7 @@ export function YouTubePage() {
         title={`${youtubeBrand.name} — Alexander Baafi Koomson`}
         description={youtubeBrand.description}
       />
-      <PageHeader eyebrow="Creator" title={youtubeBrand.name} description="Building. Learning. Explaining." />
+      <PageHeader eyebrow="YouTube" title={youtubeBrand.name} description={youtubeBrand.tagline} />
       <YouTube />
     </>
   )

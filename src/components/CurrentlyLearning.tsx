@@ -10,7 +10,7 @@ export function CurrentlyLearning() {
     <section className="section section--olive learning" aria-labelledby="learning-heading">
       <div className="container">
         <SectionHeading
-          index="07"
+          index="02"
           eyebrow="Growth"
           title="Currently learning"
           description="These are areas of continued development — not completed expertise."

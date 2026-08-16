@@ -8,11 +8,11 @@ export function SkillsPage() {
     <>
       <Seo
         title="Skills — Alexander Baafi Koomson"
-        description="Technical skills of Alexander Baafi Koomson across programming, backend engineering, databases, frontend, tools, and infrastructure."
+        description="Technical skills of Alexander Baafi Koomson across backend engineering, frontend, and DevOps / cloud. AWS is an area of active learning."
       />
       <PageHeader
-        eyebrow="Capabilities"
-        title="Skills"
+        eyebrow="Skills"
+        title="Tools I Work With"
         description="A working stack across backend, frontend, and the systems that connect them. AWS is an area of active learning, not claimed expertise."
       />
       <Skills />

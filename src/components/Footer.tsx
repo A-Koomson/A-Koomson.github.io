@@ -19,10 +19,20 @@ export function Footer() {
       viewport={viewportOnce}
     >
       <div className="container footer__inner">
-        <div>
-          <p className="footer__brand">{profile.fullName}</p>
+        <div className="footer__brand-block">
+          <p className="footer__brand">{profile.shortName}</p>
           <p className="footer__note">{profile.title}</p>
           <p className="footer__note">{profile.youtubeBrand.name}</p>
+        </div>
+        <nav className="footer__nav" aria-label="Footer">
+          {navItems.map((item) => (
+            <Link key={item.id} to={item.href}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="footer__connect">
+          <SocialLinks links={getSocialLinks()} />
           {email ? (
             <p className="footer__copy">
               <a href={email.href}>{profile.email}</a>
@@ -32,14 +42,6 @@ export function Footer() {
             © {year} {profile.fullName}.
           </p>
         </div>
-        <nav className="footer__nav" aria-label="Footer">
-          {navItems.map((item) => (
-            <Link key={item.id} to={item.href}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-        <SocialLinks links={getSocialLinks()} />
       </div>
     </motion.footer>
   )

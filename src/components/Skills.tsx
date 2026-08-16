@@ -14,7 +14,7 @@ export function Skills() {
               <Reveal>
                 <h2 className="skills__group-title">{category.title}</h2>
               </Reveal>
-              <div className="skills__grid">
+              <div className={`skills__grid skills__grid--${category.id}`}>
                 {category.skills.map((skill, index) => (
                   <SkillCard key={skill.name} skill={skill} index={index} />
                 ))}

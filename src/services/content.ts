@@ -7,6 +7,7 @@ import { services } from '../data/services'
 import { skillCategories } from '../data/skills'
 import { socialLinks } from '../data/socialLinks'
 import { videos } from '../data/videos'
+import type { IdentityFact } from '../types'
 
 /**
  * Content service.
@@ -65,4 +66,24 @@ export function getServices() {
 
 export function getSocialLink(id: 'github' | 'linkedin' | 'youtube' | 'email') {
   return socialLinks.find((link) => link.id === id)
+}
+
+export function getIdentityFacts(): IdentityFact[] {
+  const educationEntry = education[0]
+  return [
+    {
+      label: 'Focus',
+      value: 'Backend systems, architecture, databases',
+    },
+    {
+      label: 'Study',
+      value: educationEntry
+        ? `${educationEntry.credential}, ${educationEntry.institution}`
+        : 'PLACEHOLDER',
+    },
+    {
+      label: 'Based',
+      value: profile.location,
+    },
+  ]
 }
