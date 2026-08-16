@@ -54,11 +54,14 @@
   --color-sage: #16382b;
   --color-surface: #1a3328;
   --color-text: #f6f3ec;
-  --color-muted: #b7c4bc;
+  --color-muted: #d5ddd8;
   --color-background: var(--color-paper);
   --color-bg: var(--color-paper);
   --color-header: var(--color-brand);
   --color-footer: var(--color-brand);
+  --color-on-brand: #f6f3ec;
+  --color-header-text: #f6f3ec;
+  --color-footer-text: #f6f3ec;
   --color-border: color-mix(in srgb, var(--color-on-brand) 14%, transparent);
   --color-grid: color-mix(in srgb, var(--color-on-brand) 10%, transparent);
   --color-glow: color-mix(in srgb, var(--color-yellow) 22%, transparent);
@@ -203,6 +206,7 @@ button {
 
 .page-enter {
   min-height: inherit;
+  display: block;
 }
 
 .scroll-progress {
@@ -221,19 +225,15 @@ button {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--color-header) 92%, transparent);
-  background-color: color-mix(in srgb, var(--color-header) 92%, transparent);
+  background: var(--color-header);
   color: var(--color-header-text);
-  border-bottom: 1px solid color-mix(in srgb, var(--color-on-brand) 10%, transparent);
+  border-bottom: 0;
   backdrop-filter: none;
-  transition: background-color var(--duration-normal) var(--ease-out),
-    box-shadow var(--duration-normal) var(--ease-out), min-height var(--duration-normal) var(--ease-out);
+  transition: box-shadow var(--duration-normal) var(--ease-out), min-height var(--duration-normal) var(--ease-out);
 }
 
 .navbar--scrolled {
-  background: color-mix(in srgb, var(--color-header) 88%, transparent);
-  background-color: color-mix(in srgb, var(--color-header) 88%, transparent);
-  backdrop-filter: blur(16px);
+  background: var(--color-header);
   box-shadow: 0 10px 30px color-mix(in srgb, var(--color-brand-deep) 22%, transparent);
 }
 
@@ -457,12 +457,13 @@ button {
 
 .band-waves--top {
   position: absolute;
-  top: 0;
+  top: -1px;
   left: 0;
   right: 0;
   height: 4.6rem;
   z-index: 1;
   pointer-events: none;
+  line-height: 0;
 }
 
 .band-waves--top svg {
@@ -938,6 +939,31 @@ button {
   color: var(--color-on-brand);
 }
 
+.page-crumb {
+  display: none;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.85rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-on-brand) 80%, transparent);
+}
+
+.page-crumb a {
+  color: var(--color-yellow);
+  text-decoration: none;
+}
+
+.page-crumb span:last-child {
+  color: var(--color-on-brand);
+}
+
+.page-header__eyebrow,
+.hero .page-kicker {
+  text-shadow: 0 1px 12px color-mix(in srgb, var(--color-brand) 45%, transparent);
+}
+
 .page-header__description {
   margin: 0;
   max-width: 34rem;
@@ -958,7 +984,7 @@ button {
   display: grid;
   place-items: center;
   padding: 1.4rem;
-  background: var(--color-paper);
+  background: #f6f3ec;
   border-radius: 50%;
   box-shadow:
     0 0 0 10px color-mix(in srgb, var(--color-brand) 18%, transparent),
@@ -2396,6 +2422,18 @@ button {
   .page-header {
     padding-top: 2.6rem;
     padding-bottom: 0;
+  }
+
+  .page-crumb {
+    display: flex;
+  }
+
+  .page-header__eyebrow {
+    display: none;
+  }
+
+  .mobile-menu a {
+    font-size: clamp(1.35rem, 6.5vw, 2rem);
   }
 
   .page-header__waves {
