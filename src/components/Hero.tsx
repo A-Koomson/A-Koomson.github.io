@@ -17,10 +17,12 @@ export function Hero() {
 
   return (
     <section className="hero">
+      <span className="hero__arc" aria-hidden="true" />
+      <span className="hero__arc hero__arc--soft" aria-hidden="true" />
       <EngineeringGrid />
       <div className="container hero__inner">
         <div className="hero__copy">
-          <WordReveal className="hero__name" text={profile.fullName} delay={0.16} />
+          <WordReveal className="hero__name" text={profile.fullName} delay={0.16} accentLast />
           <motion.p className="hero__kicker page-kicker" variants={fadeUpDelay(0.26)} initial="hidden" animate="visible">
             {profile.title}
           </motion.p>
@@ -69,6 +71,22 @@ export function Hero() {
         >
           <ProfileImage />
         </motion.div>
+      </div>
+      <div className="hero__waves" aria-hidden="true">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path
+            className="hero__wave hero__wave--yellow"
+            d="M0 72 C 240 120 480 12 720 48 C 960 84 1200 18 1440 60 L1440 120 L0 120 Z"
+          />
+          <path
+            className="hero__wave hero__wave--green"
+            d="M0 88 C 260 40 520 110 780 74 C 1040 38 1240 96 1440 70 L1440 120 L0 120 Z"
+          />
+          <path
+            className="hero__wave hero__wave--paper"
+            d="M0 102 C 300 80 560 118 860 96 C 1120 76 1280 110 1440 92 L1440 120 L0 120 Z"
+          />
+        </svg>
       </div>
     </section>
   )

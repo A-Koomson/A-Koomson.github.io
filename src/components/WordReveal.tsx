@@ -6,9 +6,10 @@ interface WordRevealProps {
   className?: string
   id?: string
   delay?: number
+  accentLast?: boolean
 }
 
-export function WordReveal({ text, className, id, delay = 0.18 }: WordRevealProps) {
+export function WordReveal({ text, className, id, delay = 0.18, accentLast = false }: WordRevealProps) {
   const words = text.split(' ')
 
   return (
@@ -22,7 +23,11 @@ export function WordReveal({ text, className, id, delay = 0.18 }: WordRevealProp
       aria-label={text}
     >
       {words.map((word, index) => (
-        <span key={`${word}-${index}`} className="word-reveal__item" aria-hidden="true">
+        <span
+          key={`${word}-${index}`}
+          className={`word-reveal__item${accentLast && index === words.length - 1 ? ' word-reveal__item--accent' : ''}`}
+          aria-hidden="true"
+        >
           <motion.span className="word-reveal__word" variants={wordReveal}>
             {word}
           </motion.span>
