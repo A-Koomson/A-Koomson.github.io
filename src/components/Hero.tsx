@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { useCvAvailable } from '../hooks/useCvAvailable'
 import { getProfile, getSocialLinks } from '../services/content'
 import { fadeUpDelay } from '../utils/motion'
 import { BandDecor, BandWavesBottom } from './BandDecor'
@@ -13,7 +12,6 @@ export function Hero() {
   const profile = getProfile()
   const social = getSocialLinks()
   const cvHref = `${import.meta.env.BASE_URL}${profile.cvPath.replace(/^\//, '')}`
-  const cvAvailable = useCvAvailable(cvHref)
 
   return (
     <section className="hero">
@@ -41,23 +39,10 @@ export function Hero() {
             <Link className="button button--secondary" to="/about/">
               About Me
             </Link>
-            {cvAvailable ? (
-              <a className="button button--ghost" href={cvHref} download>
-                Download CV
-                <Download size={15} strokeWidth={1.8} />
-              </a>
-            ) : (
-              <button
-                type="button"
-                className="button button--ghost"
-                disabled
-                title="CV will be available soon"
-                aria-label="Download CV, coming soon"
-              >
-                Download CV
-                <Download size={15} strokeWidth={1.8} />
-              </button>
-            )}
+            <a className="button button--ghost" href={cvHref} download={profile.cvPath}>
+              Download CV
+              <Download size={15} strokeWidth={1.8} />
+            </a>
           </motion.div>
           <motion.div variants={fadeUpDelay(0.52)} initial="hidden" animate="visible">
             <SocialLinks links={social} />
