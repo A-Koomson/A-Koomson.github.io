@@ -56,6 +56,8 @@ export interface Project {
   githubUrl: string | null
   liveUrl: string | null
   image: string | null
+  /** How the project image should sit in cards and case studies. */
+  imageFit?: 'cover' | 'contain'
   featured?: boolean
   details: ProjectDetails
 }

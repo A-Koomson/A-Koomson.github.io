@@ -22,9 +22,11 @@ export function ProjectCard({ project, featured = false, tone = 'light' }: Proje
   const [imageFailed, setImageFailed] = useState(false)
   const technologies = visibleList(project.technologies)
   const description = displayText(project.description, 'Open the case study for available details.')
+  const imageFit = project.imageFit ?? 'cover'
 
   return (
     <motion.div
+      className="project-card-shell"
       initial={{ opacity: 0, y: 22 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -35,7 +37,7 @@ export function ProjectCard({ project, featured = false, tone = 'light' }: Proje
         className={`project-card project-card--${tone} ${featured ? 'project-card--featured' : ''}`}
         aria-label={`View ${project.name} case study`}
       >
-        <span className="project-card__media">
+        <span className={`project-card__media project-card__media--${imageFit}`}>
           {project.image && !imageFailed ? (
             <img
               src={project.image}
@@ -54,7 +56,7 @@ export function ProjectCard({ project, featured = false, tone = 'light' }: Proje
           <span className="project-card__top">
             <h3>{project.name}</h3>
           </span>
-          <p>{description}</p>
+          <p className="project-card__description">{description}</p>
           {technologies.length > 0 ? (
             <ul className="tech-list">
               {technologies.map((tech) => (

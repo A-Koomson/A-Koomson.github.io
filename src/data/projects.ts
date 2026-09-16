@@ -1,7 +1,7 @@
-import payrollImage from '../assets/projects/images/payroll.jpg'
+import payrollImage from '../assets/projects/logos/pidaso-payroll-lockup.svg'
 import atuGoImage from '../assets/projects/images/atu-go.jpg'
 import votingImage from '../assets/projects/images/voting.jpg'
-import ecommerceImage from '../assets/projects/images/ecommerce.jpg'
+import ecommerceImage from '../assets/projects/logos/qraftiq-logo.png'
 import salonImage from '../assets/projects/images/salon.jpg'
 import ngoImage from '../assets/projects/images/ngo.jpg'
 import studentImage from '../assets/projects/images/student.jpg'
@@ -11,12 +11,12 @@ import type { Project } from '../types'
 export const projects: Project[] = [
   {
     id: 'payroll-system',
-    name: 'Payroll and Business Backend',
+    name: 'Pidaso Payroll (Autopay)',
     description:
-      'Contributed to Go and PostgreSQL backend features for payroll and business workflows at SkilledHQ.',
+      'Contributed to Go and PostgreSQL backend features for payroll and business workflows on Pidaso Autopay at SkilledHQ.',
     technologies: ['Go', 'PostgreSQL', 'REST APIs', 'Docker'],
     githubUrl: null,
-    liveUrl: null,
+    liveUrl: 'https://www.pidaso.com/payroll/auth/signin',
     image: payrollImage,
     featured: true,
     details: {
@@ -66,12 +66,12 @@ export const projects: Project[] = [
   },
   {
     id: 'ecommerce-platform',
-    name: 'E-commerce Platform',
+    name: 'Qraftiq',
     description:
       'Contributed to the Qraftiq Django e-commerce application across product, vendor, and shop workflows.',
     technologies: ['Python', 'Django'],
     githubUrl: null,
-    liveUrl: null,
+    liveUrl: 'https://qraftiq.com',
     image: ecommerceImage,
     details: {
       problem:

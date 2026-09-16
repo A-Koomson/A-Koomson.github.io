@@ -41,7 +41,11 @@ export function ProjectDetailPage() {
           </Reveal>
           {project.image ? (
             <Reveal delay={0.08}>
-              <img className="case-study__image" src={project.image} alt={`${project.name} visual`} />
+              <img
+                className={`case-study__image${project.imageFit === 'contain' ? ' case-study__image--contain' : ''}`}
+                src={project.image}
+                alt={`${project.name} visual`}
+              />
             </Reveal>
           ) : null}
         </div>
