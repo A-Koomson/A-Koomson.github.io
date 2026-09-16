@@ -1,10 +1,10 @@
 import type { LearningItem } from '../types'
 
 export const learning: LearningItem[] = [
-  { name: 'System Design', note: 'Studying how reliable systems are structured.' },
-  { name: 'Go / Golang', note: 'Building fluency for backend services.' },
-  { name: 'AWS', note: 'Currently learning cloud fundamentals.' },
-  { name: 'Backend Engineering', note: 'Deepening API, data, and service design.' },
-  { name: 'Cloud Infrastructure', note: 'Learning how applications are deployed and operated.' },
-  { name: 'Databases and PostgreSQL', note: 'Understanding data modeling and query behavior.' },
+  { name: 'Python and Django', note: 'Deepening application design, testing, and debugging.' },
+  { name: 'PostgreSQL', note: 'Practising data modeling, transactions, and query performance.' },
+  { name: 'System Design', note: 'Understanding reliability and architectural trade-offs.' },
+  { name: 'AWS', note: 'Learning cloud fundamentals and application deployment.' },
+  { name: 'AI Engineering', note: 'Exploring model integration and evaluation through small projects.' },
+  { name: 'Backend Engineering', note: 'Building stronger API and business-logic skills.' },
 ]

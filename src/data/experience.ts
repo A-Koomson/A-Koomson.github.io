@@ -24,8 +24,13 @@ export const experience: Experience[] = [
     company: 'SkilledHQ',
     role: 'Software Engineer',
     dates: 'PLACEHOLDER',
-    summary: 'Current software engineering experience.',
+    summary:
+      'Contributing to backend development for business applications, including APIs, payroll-related workflows, and transaction functionality.',
     chapter: 'Software Engineering',
-    responsibilities: ['PLACEHOLDER'],
+    responsibilities: [
+      'Contribute to Go and PostgreSQL payroll store logic, bulk invoice and bill endpoints, notifications, and related tests.',
+      'Work on Python/Django business-application features, including transaction functionality and frontend integration.',
+      'Implement validation and tests and address issues across related application records.',
+    ],
   },
 ]

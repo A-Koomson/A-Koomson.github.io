@@ -8,9 +8,10 @@ import { extractYouTubeId, youtubeThumbnail, youtubeWatchUrl } from '../utils/yo
 interface VideoCardProps {
   video: Video
   index?: number
+  featured?: boolean
 }
 
-export function VideoCard({ video, index = 0 }: VideoCardProps) {
+export function VideoCard({ video, index = 0, featured = false }: VideoCardProps) {
   const id = extractYouTubeId(video.youtubeUrl)
   const [quality, setQuality] = useState<'maxresdefault' | 'hqdefault'>('maxresdefault')
 
@@ -28,7 +29,7 @@ export function VideoCard({ video, index = 0 }: VideoCardProps) {
 
   return (
     <motion.article
-      className="video-card"
+      className={`video-card${featured ? ' video-card--featured' : ''}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -3, transition: { duration: 0.22, ease: easeOut } }}
@@ -39,16 +40,16 @@ export function VideoCard({ video, index = 0 }: VideoCardProps) {
         <img
           src={thumbnail}
           alt=""
-          width={640}
-          height={360}
-          loading="lazy"
+          width={featured ? 1280 : 640}
+          height={featured ? 720 : 360}
+          loading={featured ? 'eager' : 'lazy'}
           decoding="async"
           onError={() => {
             if (quality === 'maxresdefault') setQuality('hqdefault')
           }}
         />
         <span className="video-card__play" aria-hidden="true">
-          <Play size={22} fill="currentColor" />
+          <Play size={featured ? 28 : 22} fill="currentColor" />
         </span>
       </a>
       <div className="video-card__body">

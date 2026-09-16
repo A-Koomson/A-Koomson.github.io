@@ -17,4 +17,7 @@ export const projectSlugs = [
   'ngo-website',
   'student-performance',
   'payment-api',
+  'referralguard',
+  'titanic-data-science',
+  'church-programme-attendance',
 ] as const

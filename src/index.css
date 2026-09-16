@@ -1698,26 +1698,80 @@ button {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.15rem;
-  margin: 1.5rem 0 2rem;
+  margin: 0 0 0.5rem;
 }
 
 .youtube__layout {
   align-items: start;
-  margin-bottom: 2rem;
+  margin-bottom: 3.25rem;
+}
+
+.youtube__lead-title {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
 }
 
 .youtube__intro {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   line-height: 1.7;
   color: var(--color-text);
+  margin: 0 0 1.35rem;
+  max-width: 38rem;
+}
+
+.youtube__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+.youtube__topics li {
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--color-card-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem;
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-green) 8%, var(--color-surface));
 }
 
 .youtube__aside {
-  padding: 1.4rem 1.45rem 1.5rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-card-border);
+  position: relative;
+  padding: 1.7rem 1.55rem 1.65rem;
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+  border: none;
   border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.youtube__aside::before {
+  content: '';
+  position: absolute;
+  inset: auto -20% -40% auto;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-yellow) 28%, transparent);
+  pointer-events: none;
+}
+
+.youtube__aside-mark {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.1rem;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  color: var(--color-on-yellow);
 }
 
 .youtube__aside-label {
@@ -1725,23 +1779,52 @@ button {
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-green);
+  color: color-mix(in srgb, var(--color-on-brand) 72%, transparent);
 }
 
 .youtube__aside-name {
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.4rem;
   font-family: var(--font-display);
-  font-size: 1.7rem;
-  color: var(--color-text);
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
+  color: var(--color-on-brand);
 }
 
 .youtube__aside-tag {
-  margin: 0 0 1.1rem;
-  color: var(--color-muted);
+  margin: 0 0 1.25rem;
+  color: color-mix(in srgb, var(--color-on-brand) 84%, transparent);
+  line-height: 1.55;
+}
+
+.youtube__aside .button--primary {
+  background: var(--color-yellow);
+  color: var(--color-on-yellow);
+  position: relative;
+}
+
+.youtube__library .section-heading {
+  margin-bottom: 1.5rem;
+}
+
+.youtube__featured {
+  margin-bottom: 1.15rem;
 }
 
 .youtube__empty {
-  padding: 2.2rem 2rem;
+  padding: 2.6rem 2.2rem;
+  display: grid;
+  justify-items: start;
+  gap: 0.35rem;
+}
+
+.youtube__empty-mark {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.75rem;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  color: var(--color-on-yellow);
 }
 
 .youtube__empty-label {
@@ -1759,6 +1842,50 @@ button {
   font-weight: 400;
 }
 
+.youtube__empty p {
+  margin: 0 0 1.25rem;
+  max-width: 36rem;
+  color: var(--color-muted);
+}
+
+.youtube-cta {
+  padding: 3.4rem 0;
+  background: var(--color-footer);
+  color: var(--color-on-dark);
+}
+
+.youtube-cta__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem 2.5rem;
+  align-items: end;
+}
+
+.youtube-cta .page-kicker {
+  margin: 0 0 0.7rem;
+}
+
+.youtube-cta__title {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--color-on-dark);
+}
+
+.youtube-cta__copy {
+  margin: 0;
+  max-width: 34rem;
+  color: color-mix(in srgb, var(--color-on-dark) 78%, transparent);
+  line-height: 1.6;
+}
+
+.youtube-cta .button--primary {
+  background: var(--color-yellow);
+  color: var(--color-on-yellow);
+}
+
 .video-card {
   background: var(--color-surface);
   border: 1px solid var(--color-card-border);
@@ -1772,11 +1899,23 @@ button {
   box-shadow: var(--shadow-card);
 }
 
+.video-card--featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.85fr);
+  align-items: stretch;
+}
+
 .video-card__media {
   position: relative;
   display: block;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  background: color-mix(in srgb, var(--color-brand) 18%, var(--color-surface));
+}
+
+.video-card--featured .video-card__media {
+  aspect-ratio: auto;
+  min-height: 100%;
 }
 
 .video-card__media img {
@@ -1804,26 +1943,45 @@ button {
 
 .video-card__play {
   position: absolute;
-  inset: auto auto 1rem 1rem;
+  inset: 50% auto auto 50%;
   z-index: 1;
-  width: 2.6rem;
-  height: 2.6rem;
+  width: 3rem;
+  height: 3rem;
   display: grid;
   place-items: center;
   border-radius: 50%;
   background: var(--color-yellow);
   color: var(--color-on-yellow);
-  transform: scale(0.96);
+  transform: translate(-50%, -50%) scale(0.96);
   transition: transform var(--duration-normal) var(--ease-out);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--color-brand) 28%, transparent);
+}
+
+.video-card--featured .video-card__play {
+  width: 3.6rem;
+  height: 3.6rem;
 }
 
 .video-card:hover .video-card__play {
-  transform: scale(1.08);
+  transform: translate(-50%, -50%) scale(1.08);
 }
 
 .video-card__body {
-  padding: 1rem 1.1rem 1.2rem;
+  padding: 1.15rem 1.2rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
+
+.video-card--featured .video-card__body {
+  padding: 1.6rem 1.55rem 1.65rem;
+  justify-content: center;
+}
+
+.video-card--featured h3 {
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+}
+
 
 .contact__layout {
   align-items: start;
@@ -2405,8 +2563,19 @@ button {
   .skills__grid,
   .skills__grid--frontend,
   .skills__grid--preview,
-  .contact__channels {
+  .contact__channels,
+  .youtube-cta__inner,
+  .video-card--featured {
     grid-template-columns: 1fr;
+  }
+
+  .youtube-cta__inner {
+    justify-items: start;
+  }
+
+  .video-card--featured .video-card__media {
+    min-height: 12rem;
+    aspect-ratio: 16 / 9;
   }
 
   .service-card,

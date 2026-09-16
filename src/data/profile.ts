@@ -7,10 +7,10 @@ export const profile: Profile = {
   title: 'Software Engineer & Systems Builder',
   tagline: 'Building reliable systems. Understanding how they work.',
   supportingStatement:
-    'I build backend systems, explore how software works beneath the surface, and continuously turn what I learn into practical projects.',
+    'I build backend applications with Python, Django, Go, and PostgreSQL, and turn practical problems into software I can explain and improve.',
   about: [
-    'I am a Software Engineer and Systems Builder. I spend most of my time on backend work — APIs, databases, and the structure that keeps software reliable after the first version ships.',
-    'I care about why a system behaves the way it does: how data moves, where it fails, and what makes it hold up. I am studying Computer Science at Accra Technical University, building practical projects as I learn, and sharing that process through Systems by Koomson.',
+    'I am a software engineer based in Accra, Ghana, focused on backend development. My work includes contributions to business and e-commerce applications, alongside personal and academic projects.',
+    'I study Computer Science at Accra Technical University and share software concepts through Systems by Koomson. I am deepening my Python and PostgreSQL skills, learning AWS, and gradually exploring AI engineering through practical projects.',
   ],
   location: 'Accra, Ghana',
   email: 'koomsonalexander54@gmail.com',

@@ -15,7 +15,7 @@ export function YouTubePage() {
       <PageHeader
         eyebrow="YouTube"
         title={youtubeBrand.name}
-        description={youtubeBrand.tagline}
+        description="Practical lessons on software systems, backend engineering, and the ideas behind what we build."
         figure="youtube"
       />
       <YouTube />
