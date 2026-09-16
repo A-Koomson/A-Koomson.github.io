@@ -13,7 +13,7 @@ export function ExperiencePage() {
       <PageHeader
         eyebrow="Experience"
         title="Where I've Worked"
-        description="A career journey from teaching and management into software engineering. Dates and responsibilities are listed only where they have been confirmed."
+        description="From teaching and store operations into backend software development — roles and dates taken from the current CV."
         figure="experience"
       />
       <Experience />

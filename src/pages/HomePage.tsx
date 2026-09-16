@@ -109,7 +109,7 @@ export function HomePage() {
             description="A path from teaching and management into software engineering and systems building."
           />
           <div className="experience-preview">
-            {experience.map((entry, index) => (
+            {experience.slice(0, 3).map((entry, index) => (
               <Reveal key={entry.id} delay={index * 0.06}>
                 <article className="timeline__card">
                   <span className="timeline__index">{String(index + 1).padStart(2, '0')}</span>
