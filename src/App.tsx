@@ -1,5 +1,6 @@
 import { MotionConfig } from 'framer-motion'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { GoatCounter } from './components/GoatCounter'
 import { Layout } from './components/Layout'
 import { ThemeProvider } from './hooks/useTheme'
 import { AboutPage } from './pages/AboutPage'
@@ -18,6 +19,7 @@ export default function App() {
     <ThemeProvider>
       <MotionConfig reducedMotion="user">
         <BrowserRouter>
+          <GoatCounter />
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<HomePage />} />

@@ -24,6 +24,10 @@ This is a static React portfolio. All content lives in frontend data files so th
 
 There is no backend, database, authentication, or custom API.
 
+## Analytics
+
+Visitor traffic is measured with [GoatCounter](https://www.goatcounter.com) (privacy-friendly, cookieless). The site code is `akoomson` — create that site in GoatCounter so the dashboard receives hits from `a-koomson.github.io`. Change the code in both `src/data/analytics.ts` and `index.html` if you use a different subdomain.
+
 ## Local development
 
 ```bash
